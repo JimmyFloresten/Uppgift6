@@ -23,9 +23,8 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            UpdateListView();
-            
-            
+            UpdateListView();            
+            hej
         }
         
         private void UpdateListView()
