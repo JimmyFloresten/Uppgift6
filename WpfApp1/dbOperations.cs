@@ -13,6 +13,41 @@ namespace WpfApp1
         //NpgsqlConnection conn = new
         //    NpgsqlConnection("server=studentpsql.miun.se; Port=5432; Database=ik102g_db02; User Id=ik102g_1902; Password=databas19;SslMode=Require;/>");
         // Kallar på anslutningen till databasen
+
+
+       public List<guardian_child> GetEriksChildren()
+        {
+            guardian_child c;
+            List<guardian_child> guardian_s = new List<guardian_child>();
+            using (var conn = new
+               NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT child.fname FROM child INNER JOIN guardian_child ON child.child_id = guardian_child.child_id WHERE guardian_id = 1";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            c = new guardian_child()
+                            {
+                                guardian_id = reader.GetInt32(0),
+                                child_id = reader.GetInt32(1),
+                                
+                            };
+                            guardian_s.Add(c);
+                        }
+                    }
+                    conn.Close();
+                }
+                return guardian_s;
+
+            }
+
+        }
       public List<Child> GetAllChildren()
         {
             Child c;

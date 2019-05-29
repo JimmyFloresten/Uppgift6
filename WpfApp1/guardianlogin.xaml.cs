@@ -21,7 +21,12 @@ namespace WpfApp1
     {
         public guardianlogin()
         {
+            dbOperations db = new dbOperations();
             InitializeComponent();
+            listView.ItemsSource = null;
+            listView.ItemsSource = db.GetEriksChildren();
         }
+
+
     }
 }

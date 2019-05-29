@@ -15,7 +15,7 @@ namespace WpfApp1
 
         public override string ToString() 
         {
-            return child_id + " " + guardian_id;
+            return guardian_id + " " + child_id;
         }
    
     }
