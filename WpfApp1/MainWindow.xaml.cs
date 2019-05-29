@@ -26,14 +26,14 @@ namespace WpfApp1
             UpdateListView();
             
         }
-
+        //hej
         private void UpdateListView()
         {
             dbOperations db = new dbOperations();
             listView.ItemsSource = null;
             listView.ItemsSource = db.GetAllGuardians();
         }
-
+        
         private void button_Click(object sender, RoutedEventArgs e)
         {
             dbOperations db = new dbOperations();
