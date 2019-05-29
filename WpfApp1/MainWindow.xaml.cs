@@ -26,7 +26,7 @@ namespace WpfApp1
             UpdateListView();
             
         }
-        //hej
+        
         private void UpdateListView()
         {
             dbOperations db = new dbOperations();
