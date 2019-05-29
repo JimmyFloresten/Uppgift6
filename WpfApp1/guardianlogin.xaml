@@ -13,7 +13,6 @@
                     <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
                     <GridViewColumn Header="Efternamn" Width="100" DisplayMemberBinding="{Binding lname}"/>
                     <GridViewColumn Header="Speciella behov" Width="100" DisplayMemberBinding="{Binding special_needs}"/>
-                    <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -18,7 +18,7 @@ namespace WpfApp1
        public List<Child> GetEriksChildren()
         {
             Child c;
-            List<Child> guardian_s = new List<Child>();
+            List<Child> childs = new List<Child>();
             using (var conn = new
                NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
@@ -40,12 +40,12 @@ namespace WpfApp1
                                 special_needs = reader.GetString(2),
                                 lname = reader.GetString(3)
                             };
-                            guardian_s.Add(c);
+                            childs.Add(c);
                         }
                     }
                     conn.Close();
                 }
-                return guardian_s;
+                return childs;
 
             }
 
