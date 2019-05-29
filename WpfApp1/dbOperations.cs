@@ -15,10 +15,10 @@ namespace WpfApp1
         // Kallar på anslutningen till databasen
 
 
-       public List<guardian_child> GetEriksChildren()
+       public List<Child> GetEriksChildren()
         {
-            guardian_child c;
-            List<guardian_child> guardian_s = new List<guardian_child>();
+            Child c;
+            List<Child> guardian_s = new List<Child>();
             using (var conn = new
                NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
@@ -26,17 +26,19 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT child.fname FROM child INNER JOIN guardian_child ON child.child_id = guardian_child.child_id WHERE guardian_id = 1";
-
+                    cmd.CommandText = "SELECT child.child_id, child.fname, child.special_needs, child.lname FROM child INNER JOIN guardian_child ON child.child_id = guardian_child.child_id WHERE guardian_id = 1";
+                    // NÄR SOLEN SKINER, VILL JAG HA GLASSAR. 
+                    // SOM SOM SOMMAREN, PULSEN BÖRJAR SLÅ KAN INTE FÖRKLARA. ALLTING BÖRJAR OM OM OM IGEN, HON E SHALALA SOM SOM SOMMAREN.
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            c = new guardian_child()
+                            c = new Child()
                             {
-                                guardian_id = reader.GetInt32(0),
-                                child_id = reader.GetInt32(1),
-                                
+                                child_id = reader.GetInt32(0),
+                                fname = reader.GetString(1),
+                                special_needs = reader.GetString(2),
+                                lname = reader.GetString(3)
                             };
                             guardian_s.Add(c);
                         }
@@ -71,7 +73,7 @@ namespace WpfApp1
                     special_needs = reader.GetString(2)
                 };
                 childs.Add(c);
-              //  conn.Close();
+                conn.Close();
             }
             return childs;
         }
