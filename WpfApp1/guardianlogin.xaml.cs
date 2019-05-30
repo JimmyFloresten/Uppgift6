@@ -19,6 +19,7 @@ namespace WpfApp1
     /// </summary>
     public partial class guardianlogin : Window
     {
+        Child selectedChild = new Child();
         public guardianlogin()
         {
             dbOperations db = new dbOperations();
@@ -29,6 +30,16 @@ namespace WpfApp1
 
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
+            dbOperations db = new dbOperations();
+            listView.SelectedItem = selectedChild;
+            listView_schedule.ItemsSource = null;
+            listView_schedule.ItemsSource = db.GetSchedules(selectedChild);
+        }
+
+        private void Btn_ansok_Click(object sender, RoutedEventArgs e)
+        {
+           
 
         }
     }

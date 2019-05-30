@@ -112,6 +112,42 @@ namespace WpfApp1
             }
 
         }
+        public List<schedule> GetSchedules(Child child)
+        {
+            schedule s;
+            List<schedule> schedules = new List<schedule>();
+            using (var conn = new
+                    NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM schedule ";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            s = new schedule()
+                            {
+                                schedule_id = reader.GetInt32(0),
+                                breakfast = reader.GetBoolean(1),
+                                sickleave = reader.GetDateTime(2),
+                                pick_up = reader.GetString(3),
+                                goalone = reader.GetBoolean(4),
+                                child_id = reader.GetInt32(5),
+                                leave = reader.GetDateTime(6),
+                                weekday = reader.GetString(7)
+                            };
+                            schedules.Add(s);
+                        }
+                    }
+                }
+                return schedules;
+            }
+        }
+        
         public List<staff> GetAllStaff()
         {
             staff s;

@@ -24,7 +24,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             UpdateListView();            
-            hej
+           
         }
         
         private void UpdateListView()
