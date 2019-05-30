@@ -34,7 +34,8 @@ namespace WpfApp1
         Child selectedChild = new Child();
             dbOperations db = new dbOperations();
             listView.SelectedItem = selectedChild;
-            listView_schedule.ItemsSource = db.GetSchedules(selectedChild.child_id);
+         //   listView_schedule.ItemsSource = db.GetSchedules(selectedChild);
+            listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
         private void Btn_ansok_Click(object sender, RoutedEventArgs e)

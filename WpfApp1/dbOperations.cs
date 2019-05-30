@@ -112,7 +112,7 @@ namespace WpfApp1
             }
 
         }
-        public List<schedule> GetSchedules(int id)
+        public List<schedule> GetSchedules(Child child)
         {
             schedule s;
             List<schedule> schedules = new List<schedule>();
@@ -124,8 +124,8 @@ namespace WpfApp1
                 {
                     
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday FROM schedule  WHERE child_id = 1";
-
+                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id";
+                    cmd.Parameters.AddWithValue("child.child_id", child.child_id);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
