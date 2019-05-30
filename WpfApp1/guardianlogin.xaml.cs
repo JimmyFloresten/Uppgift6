@@ -27,6 +27,9 @@ namespace WpfApp1
             listView.ItemsSource = db.GetEriksChildren();
         }
 
+        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

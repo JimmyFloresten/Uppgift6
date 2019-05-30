@@ -7,13 +7,12 @@
         mc:Ignorable="d"
         Title="guardianlogin" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="191" Margin="23,52,0,0" VerticalAlignment="Top" Width="311">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="191" Margin="23,52,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
                     <GridViewColumn Header="Efternamn" Width="100" DisplayMemberBinding="{Binding lname}"/>
                     <GridViewColumn Header="Speciella behov" Width="100" DisplayMemberBinding="{Binding special_needs}"/>
-                    <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
