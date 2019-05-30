@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="guardianlogin" Height="450" Width="800">
-    <Grid>
+        Title="guardianlogin" Height="650" Width="1200">
+    <Grid Margin="0,0,-6.667,-4.333">
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="191" Margin="23,52,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listView_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -33,10 +33,15 @@
         </Label>
         <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="123,316,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_ansok" Content="Ansök" HorizontalAlignment="Left" Margin="23,366,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ansok_Click"/>
-        <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="324">
+        <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="588">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
+                    <GridViewColumn Header="Sjukanmäld" Width="140" DisplayMemberBinding="{Binding sickleave}"/>
+                    <GridViewColumn Header="Hämtas av" Width="70" DisplayMemberBinding="{Binding pick_up}"/>
+                    <GridViewColumn Header="Får gå själv" Width="80" DisplayMemberBinding="{Binding goalone}"/>
+                    <GridViewColumn Header="Ledighet" Width="140" DisplayMemberBinding="{Binding leave}"/>
+                    <GridViewColumn Header="Veckodag" Width="100" DisplayMemberBinding="{Binding weekday}"/>
                 </GridView>
             </ListView.View>
         </ListView>

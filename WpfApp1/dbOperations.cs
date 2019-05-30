@@ -15,7 +15,7 @@ namespace WpfApp1
         // Kallar på anslutningen till databasen
 
 
-       public List<Child> GetEriksChildren()
+       public List<Child> GetEriksChildren() 
         {
             Child c;
             List<Child> childs = new List<Child>();
@@ -112,7 +112,7 @@ namespace WpfApp1
             }
 
         }
-        public List<schedule> GetSchedules(Child child)
+        public List<schedule> GetSchedules(int id)
         {
             schedule s;
             List<schedule> schedules = new List<schedule>();
@@ -122,8 +122,9 @@ namespace WpfApp1
                 conn.Open();
                 using (var cmd = new NpgsqlCommand())
                 {
+                    
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM schedule ";
+                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday FROM schedule  WHERE child_id = 1";
 
                     using (var reader = cmd.ExecuteReader())
                     {
