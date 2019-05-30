@@ -12,7 +12,7 @@ namespace WpfApp1
 
         public bool breakfast { get; set; }
     
-        public DateTime sickleave { get; set; }
+        public string sickleave { get; set; }
 
         public string pick_up { get; set; }
         
@@ -20,13 +20,13 @@ namespace WpfApp1
 
         public int child_id {get; set; }
 
-        public DateTime leave { get; set; }
+        public string leave { get; set; }
 
         public string weekday { get; set; }
 
         public override string ToString()
         {
-            return child_id + " " + breakfast + " " + sickleave + " " + pick_up + " " + goalone + " " + leave + " " + weekday;
+            return child_id + " " + breakfast + " " + sickleave.ToString() + " " + pick_up + " " + goalone + " " + leave.ToString() + " " + weekday;
         }
 
     }

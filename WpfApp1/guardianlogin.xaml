@@ -32,7 +32,7 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="123,316,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_ansok" Content="Ansök" HorizontalAlignment="Left" Margin="23,366,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ansok_Click"/>
+        <Button x:Name="btn_ansok" Content="Ansök" HorizontalAlignment="Left" Margin="26,366,0,0" VerticalAlignment="Top" Width="72" Click="Btn_ansok_Click"/>
         <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="588">
             <ListView.View>
                 <GridView>

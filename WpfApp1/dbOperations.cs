@@ -112,6 +112,36 @@ namespace WpfApp1
             }
 
         }
+        //metod för att lägga till nytt schema
+        public void Addschedule(bool bf, DateTime sl, string pp, bool ga, DateTime leave, string weekday)
+        {
+            schedule s = new schedule();
+            s.breakfast = bf.ToString();
+            s.sickleave = sl.ToString();
+            s.pick_up = pp;
+            s.goalone = ga.ToString();
+            s.leave = leave.ToString();
+            s.weekday = weekday;
+
+            string stmt = "INSERT INTO schedule(breakfast, sickleave, pick_up, goalone, leave, weekday) VALUES (@bf, @sl, @pp, @ga, @leave, @weekday)";
+
+            using (var conn = new
+                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("bf", bf);
+                    cmd.Parameters.AddWithValue("sl", sl);
+                    cmd.Parameters.AddWithValue("pp", pp);
+                    cmd.Parameters.AddWithValue("ga", ga);
+                    cmd.Parameters.AddWithValue("leave", leave);
+                    cmd.Parameters.AddWithValue("weekday", weekday);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }   
         public List<schedule> GetSchedules(Child child)
         {
             schedule s;
@@ -134,11 +164,11 @@ namespace WpfApp1
                             {
                                 schedule_id = reader.GetInt32(0),
                                 breakfast = reader.GetBoolean(1),
-                                sickleave = reader.GetDateTime(2),
+                                sickleave = reader.GetString(2),
                                 pick_up = reader.GetString(3),
                                 goalone = reader.GetBoolean(4),
                                 child_id = reader.GetInt32(5),
-                                leave = reader.GetDateTime(6),
+                                leave = reader.GetString(6),
                                 weekday = reader.GetString(7)
                             };
                             schedules.Add(s);
