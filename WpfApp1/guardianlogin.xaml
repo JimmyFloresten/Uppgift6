@@ -18,6 +18,22 @@
             </ListView.View>
         </ListView>
         <Label x:Name="label" Content="Eriks barn" HorizontalAlignment="Left" Margin="23,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.064,0.949"/>
+        <TextBox x:Name="txtbox_ledigt_från" HorizontalAlignment="Left" Height="23" Margin="402,84,0,0" TextWrapping="Wrap" Text="2019-05-30" VerticalAlignment="Top" Width="71"/>
+        <TextBox x:Name="txt_ledig_till" HorizontalAlignment="Left" Height="23" Margin="551,84,0,0" TextWrapping="Wrap" Text="2019-06-06" VerticalAlignment="Top" Width="72"/>
+        <Label x:Name="label1" Content="Ledighetsansökan" HorizontalAlignment="Left" Margin="402,21,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Från:" HorizontalAlignment="Left" Margin="402,58,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Till:" HorizontalAlignment="Left" Margin="555,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.183"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="499,80,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_ansok" Content="Ansök" HorizontalAlignment="Left" Margin="402,159,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
