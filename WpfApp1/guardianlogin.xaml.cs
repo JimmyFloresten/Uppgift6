@@ -38,10 +38,11 @@ namespace WpfApp1
             listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
-        private void Btn_ansok_Click(object sender, RoutedEventArgs e)
-        {
        
 
+        private void calender_dateChanged(object sender, CalendarDateChangedEventArgs e)
+        {
+            textBox_schedule.Text = Calender.SelectedDate.ToString();
         }
     }
 }
