@@ -46,9 +46,46 @@ namespace WpfApp1
         private void calender_selectedDate(object sender, SelectionChangedEventArgs e)
         {
             string date = Calender.ToString();
-            textBox_schedule.Text = date.ToString();
+            txtvisadatum1.Text = date.ToString();
 
          
+        }
+        public bool checkhemsjalv()
+        {
+
+            schedule schedule = new schedule();
+            if (checkhemsjälv.IsChecked == true)
+            {
+                schedule.goalone = true;
+            }
+            else
+            {
+                schedule.goalone = false;
+            }
+            return schedule.goalone;
+        }
+        public bool breakfast()
+        {
+            schedule schedule = new schedule();
+            if (checkfrukost.IsChecked == true)
+            {
+                schedule.breakfast = true;
+            }
+            else
+            {
+                schedule.breakfast = false;
+            }
+            return schedule.breakfast;
+        }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+      
+            dbOperations db = new dbOperations();
+
+            string date = Calender.ToString();
+            txtvisadatum1.Text = date.ToString();
+
+            db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtComing.Text), DateTime.Parse(txtLeaving.Text));
         }
     }
 }

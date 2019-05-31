@@ -148,18 +148,19 @@ namespace WpfApp1
 
             }
         }
-        //metod för att lägga till nytt schema
-        public void Addschedule(bool bf, DateTime sl, string pp, bool ga, DateTime leave, string weekday)
+        //metod för att lägga till nytt schema-
+        public void Addschedule(bool bf, string pp, bool ga, DateTime leave, DateTime schedule_datecoming, DateTime schedule_dateleaving)
         {
             schedule s = new schedule();
+            s.schedule_id = schedule_id;
             s.breakfast = bf;
-            s.sickleave = sl;
             s.pick_up = pp;
             s.goalone = ga;
             s.leave = leave;
-            s.weekday = weekday;
+            s.schedule_datecoming = schedule_datecoming;
+            s.schedule_dateleave = schedule_dateleaving;
 
-            string stmt = "INSERT INTO schedule(breakfast, sickleave, pick_up, goalone, leave, weekday) VALUES (@bf, @sl, @pp, @ga, @leave, @weekday)";
+            string stmt = "INSERT INTO schedule(schedule_id, breakfast, pick_up, goalone, leave, schedule_datecoming, schedule_dateleaving) VALUES (@schedule_id @bf, @pp, @ga, @leave, @schedule_datecoming, @schedule_dateleaving)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -167,17 +168,19 @@ namespace WpfApp1
                 conn.Open();
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {
+                    cmd.Parameters.AddWithValue("schedule_id", schedule_id);
                     cmd.Parameters.AddWithValue("bf", bf);
-                    cmd.Parameters.AddWithValue("sl", sl);
                     cmd.Parameters.AddWithValue("pp", pp);
                     cmd.Parameters.AddWithValue("ga", ga);
                     cmd.Parameters.AddWithValue("leave", leave);
-                    cmd.Parameters.AddWithValue("weekday", weekday);
+                    cmd.Parameters.AddWithValue("schedule_datecoming", schedule_datecoming);
+                    cmd.Parameters.AddWithValue("schedule_dateleaving", schedule_dateleaving);
                     cmd.ExecuteNonQuery();
                 }
             }
 
         }
+      //  public void ReportSick()
         public List<schedule> GetSchedules(Child child)
         {
             schedule s;
