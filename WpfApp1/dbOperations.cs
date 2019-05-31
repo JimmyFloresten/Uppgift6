@@ -249,6 +249,29 @@ namespace WpfApp1
             }
 
         }
+        public List<schedule> ReportSick(Child child)
+        {
+            List<schedule> schedules = new List<schedule>();
+            DateTime sl = new DateTime();
+            schedule s = new schedule();        
+            s.sickleave = sl;
+            
+            string stmt = "INSERT INTO schedule(sickleave VALUES (@sl)";
+
+            using (var conn = new
+                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {                  
+                    cmd.Parameters.AddWithValue("sl", sl);                  
+                    //cmd.ExecuteNonQuery();
+                }
+                schedules.Add(s);
+            }
+            return schedules;
+
+        }
 
 
     }
