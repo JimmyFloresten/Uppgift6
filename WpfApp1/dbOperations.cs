@@ -152,10 +152,10 @@ namespace WpfApp1
         public void Addschedule(bool bf, DateTime sl, string pp, bool ga, DateTime leave, string weekday)
         {
             schedule s = new schedule();
-            s.breakfast = bf.ToString();
+            s.breakfast = bf;
             s.sickleave = sl.ToString();
             s.pick_up = pp;
-            s.goalone = ga.ToString();
+            s.goalone = ga;
             s.leave = leave.ToString();
             s.weekday = weekday;
 
