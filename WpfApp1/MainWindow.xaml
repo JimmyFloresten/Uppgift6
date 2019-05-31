@@ -20,6 +20,7 @@
             </ListView.View>
         </ListView>
         <Label x:Name="label_Copy" Content="Välj lärare" HorizontalAlignment="Left" Margin="62,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.007,0.357"/>
+        <Button x:Name="btnTeachLogin" Content="Logga in" HorizontalAlignment="Left" Margin="205,261,0,0" VerticalAlignment="Top" Width="75" Click="btnTeachLogin_Click"/>
 
     </Grid>
 </Window>

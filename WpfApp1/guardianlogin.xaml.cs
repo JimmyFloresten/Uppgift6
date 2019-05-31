@@ -41,7 +41,6 @@ namespace WpfApp1
         private void Btn_ansok_Click(object sender, RoutedEventArgs e)
         {
        
-
         }
     }
 }

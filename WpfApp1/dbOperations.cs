@@ -112,6 +112,42 @@ namespace WpfApp1
             }
 
         }
+
+        public List<Child> getAllclasChildren()
+        {
+            string stt = "1:an";
+            Child c;
+            List<Child> childs = new List<Child>();
+            using (var conn = new
+               NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT child.child_id, child.fname, child.special_needs, child.lname, learn.clas FROM child INNER JOIN learn ON child.child_id = learn.child_id WHERE learn.clas = '1:an'";
+                    // NÄR SOLEN SKINER, VILL JAG HA GLASSAR. 
+                    // SOM SOM SOMMAREN, PULSEN BÖRJAR SLÅ KAN INTE FÖRKLARA. ALLTING BÖRJAR OM OM OM IGEN, HON E SHALALA SOM SOM SOMMAREN.
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            c = new Child()
+                            {
+                                child_id = reader.GetInt32(0),
+                                fname = reader.GetString(1),
+                                special_needs = reader.GetString(2),
+                                lname = reader.GetString(3)
+                            };
+                            childs.Add(c);
+                        }
+                    }
+                    conn.Close();
+                }
+                return childs;
+
+            }
+        }
         //metod för att lägga till nytt schema
         public void Addschedule(bool bf, DateTime sl, string pp, bool ga, DateTime leave, string weekday)
         {
@@ -141,7 +177,7 @@ namespace WpfApp1
                 }
             }
 
-        }   
+        }
         public List<schedule> GetSchedules(Child child)
         {
             schedule s;
@@ -154,7 +190,7 @@ namespace WpfApp1
                 {
                     
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id";
+                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id ORDER BY schedule.schedule_id DESC";
                     cmd.Parameters.AddWithValue("child.child_id", child.child_id);
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -164,11 +200,11 @@ namespace WpfApp1
                             {
                                 schedule_id = reader.GetInt32(0),
                                 breakfast = reader.GetBoolean(1),
-                                sickleave = reader.GetString(2),
+                                sickleave = reader.GetDateTime(2),
                                 pick_up = reader.GetString(3),
                                 goalone = reader.GetBoolean(4),
                                 child_id = reader.GetInt32(5),
-                                leave = reader.GetString(6),
+                                leave = reader.GetDateTime(6),
                                 weekday = reader.GetString(7)
                             };
                             schedules.Add(s);

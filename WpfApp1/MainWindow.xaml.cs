@@ -68,5 +68,13 @@ namespace WpfApp1
         {
             listView.SelectedItem = selectedGuardian;
         }
+
+        private void btnTeachLogin_Click(object sender, RoutedEventArgs e)
+        {
+            dbOperations db = new dbOperations();
+            teacherlogin teacherlogin = new teacherlogin();
+            teacherlogin.Show();
+            this.Hide();
+        }
     }
 }

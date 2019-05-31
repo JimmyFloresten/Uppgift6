@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApp1.teacherlogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="teacherlogin" Height="650" Width="1200">
+    <Grid>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="236" Margin="561,42,0,0" VerticalAlignment="Top" Width="589">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
+                    <GridViewColumn Header="Sjukanmäld" Width="140" DisplayMemberBinding="{Binding sickleave}"/>
+                    <GridViewColumn Header="Hämtas av" Width="70" DisplayMemberBinding="{Binding pick_up}"/>
+                    <GridViewColumn Header="Får gå själv" Width="80" DisplayMemberBinding="{Binding goalone}"/>
+                    <GridViewColumn Header="Ledighet" Width="140" DisplayMemberBinding="{Binding leave}"/>
+                    <GridViewColumn Header="Veckodag" Width="100" DisplayMemberBinding="{Binding weekday}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="211" Margin="55,42,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listView1_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
+                    <GridViewColumn Header="Efternamn" Width="100" DisplayMemberBinding="{Binding lname}"/>
+                    <GridViewColumn Header="Speciella behov" Width="100" DisplayMemberBinding="{Binding special_needs}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

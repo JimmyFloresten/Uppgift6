@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="attendence.cs" />
+    <Compile Include="learn.cs" />
     <Compile Include="guardian.cs" />
     <Compile Include="guardianlogin.xaml.cs">
       <DependentUpon>guardianlogin.xaml</DependentUpon>
@@ -86,6 +87,9 @@
     <Compile Include="guardian_child.cs" />
     <Compile Include="schedule.cs" />
     <Compile Include="staff.cs" />
+    <Compile Include="teacherlogin.xaml.cs">
+      <DependentUpon>teacherlogin.xaml</DependentUpon>
+    </Compile>
     <Page Include="guardianlogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +108,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="teacherlogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
