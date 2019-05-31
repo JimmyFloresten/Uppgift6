@@ -153,10 +153,10 @@ namespace WpfApp1
         {
             schedule s = new schedule();
             s.breakfast = bf;
-            s.sickleave = sl.ToString();
+            s.sickleave = sl;
             s.pick_up = pp;
             s.goalone = ga;
-            s.leave = leave.ToString();
+            s.leave = leave;
             s.weekday = weekday;
 
             string stmt = "INSERT INTO schedule(breakfast, sickleave, pick_up, goalone, leave, weekday) VALUES (@bf, @sl, @pp, @ga, @leave, @weekday)";
