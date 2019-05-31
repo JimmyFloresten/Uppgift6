@@ -17,8 +17,8 @@
             </ListView.View>
         </ListView>
         <Label x:Name="label" Content="Eriks barn" HorizontalAlignment="Left" Margin="23,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.064,0.949"/>
-        <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="23,316,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="123,316,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="318,342,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="418,342,0,0" VerticalAlignment="Top"/>
         <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="588">
             <ListView.View>
                 <GridView>
@@ -31,10 +31,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <CheckBox x:Name="checkBox" Content="Mitt barn vill äta frukost på fritids" HorizontalAlignment="Left" Margin="23,477,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="23,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-        <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="23,364,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox1" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="23,435,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBox" Content="Mitt barn vill äta frukost på fritids" HorizontalAlignment="Left" Margin="318,503,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="318,416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="318,390,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBox1" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="318,461,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Calendar HorizontalAlignment="Left" Margin="23,369,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.186,0.148"/>
 
     </Grid>
 </Window>
