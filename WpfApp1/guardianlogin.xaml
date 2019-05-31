@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="guardianlogin" Height="650" Width="1200">
-    <Grid Margin="0,0,-6.667,-4.333">
+    <Grid Margin="0,0,-6.667,-2.333">
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="191" Margin="23,52,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listView_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -17,22 +17,8 @@
             </ListView.View>
         </ListView>
         <Label x:Name="label" Content="Eriks barn" HorizontalAlignment="Left" Margin="23,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.064,0.949"/>
-        <TextBox x:Name="txtbox_ledigt_från" HorizontalAlignment="Left" Height="23" Margin="26,320,0,0" TextWrapping="Wrap" Text="2019-05-30" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="txt_ledig_till" HorizontalAlignment="Left" Height="23" Margin="175,320,0,0" TextWrapping="Wrap" Text="2019-06-06" VerticalAlignment="Top" Width="72"/>
-        <Label x:Name="label1" Content="Ledighetsansökan" HorizontalAlignment="Left" Margin="26,257,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Från:" HorizontalAlignment="Left" Margin="26,294,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Till:" HorizontalAlignment="Left" Margin="179,293,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.183"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
+        <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="23,316,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="123,316,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_ansok" Content="Ansök" HorizontalAlignment="Left" Margin="26,366,0,0" VerticalAlignment="Top" Width="72" Click="Btn_ansok_Click"/>
         <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="588">
             <ListView.View>
                 <GridView>
@@ -45,6 +31,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <CheckBox x:Name="checkBox" Content="Mitt barn vill äta frukost på fritids" HorizontalAlignment="Left" Margin="23,477,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="23,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="23,364,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBox1" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="23,435,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
