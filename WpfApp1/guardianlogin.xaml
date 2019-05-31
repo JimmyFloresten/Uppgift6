@@ -35,7 +35,7 @@
         <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="412,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
         <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="412,394,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox1" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="412,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Calendar x:Name="Calender" Margin="23,351,998,0" VerticalAlignment="Top" RenderTransformOrigin="0.186,0.148" SelectedDatesChanged="calender_selectedDate"/>
+        <Calendar x:Name="Calender" Margin="23,351,998,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5" SelectedDatesChanged="calender_selectedDate"/>
         <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="412,564,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="textBox_schedule" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 

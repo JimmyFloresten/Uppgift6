@@ -22,6 +22,10 @@ namespace WpfApp1
 
         public DateTime leave { get; set; }
 
+        public DateTime schedule_dateleave { get; set; }
+
+        public DateTime schedule_datecoming { get; set; }
+
         public string weekday { get; set; }
 
         public override string ToString()

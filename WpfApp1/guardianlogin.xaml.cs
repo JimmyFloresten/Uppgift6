@@ -45,7 +45,9 @@ namespace WpfApp1
 
         private void calender_selectedDate(object sender, SelectionChangedEventArgs e)
         {
-            
+            string date = Calender.ToString();
+            textBox_schedule.Text = date.ToString();
+
          
         }
     }
