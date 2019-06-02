@@ -98,10 +98,13 @@ namespace WpfApp1
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
+
+            
             dbOperations db = new dbOperations();
-            string date = Calender.ToString();
-            txtvisadatum1.Text = date.ToString();
-            db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
+            string date = Calender.SelectedDate.ToString();
+            DateTime.Parse(date).Date.ToShortDateString();
+            txtvisadatum1.Text = date;
+            db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text), (Child)listView.SelectedItem);
           
         }
     }

@@ -13,16 +13,7 @@ namespace WpfApp1
         //NpgsqlConnection conn = new
         //    NpgsqlConnection("server=studentpsql.miun.se; Port=5432; Database=ik102g_db02; User Id=ik102g_1902; Password=databas19;SslMode=Require;/>");
         // Kallar på anslutningen till databasen
-
-
-        public string GetUniqueNumber()
-        {
-            string s;
-            s = DateTime.Now.ToString("yyMMddHHmmss");
-
-            return s;
-            
-        }
+      
 
        public List<Child> GetEriksChildren() 
         {
@@ -158,20 +149,19 @@ namespace WpfApp1
             }
         }
         //metod för att lägga till nytt schema-
-        public void Addschedule(int schedule_id, bool bf, string pp, bool ga, DateTime leave, DateTime schedule_datecoming, DateTime schedule_dateleaving)
+        public void Addschedule(bool bf, string pp, bool ga, DateTime arrivaldate, DateTime schedule_datecoming, DateTime schedule_dateleaving, Child c)
         {
             schedule s = new schedule();
-            s.schedule_id = schedule_id;
             s.breakfast = bf;
             s.pick_up = pp;
             s.goalone = ga;
-            s.leave = leave;
+            s.arrivaldate = arrivaldate;
             s.schedule_datecoming = schedule_datecoming;
-            s.schedule_dateleave = schedule_dateleaving;
+            s.schedule_dateleaving = schedule_dateleaving;
 
             
 
-            string stmt = "INSERT INTO schedule(schedule_id, breakfast, pick_up, goalone, leave, sickleave schedule_datecoming, weekday, schedule_dateleaving schedule.child_id) VALUES (@schedule_id @bf, @pp, @ga, @leave, @sickleave @schedule_datecoming, @schedule_dateleaving @schedule.child_id)";
+            string stmt = "INSERT INTO schedule(breakfast, pick_up, goalone, child_id, arrivaldate, schedule_datecoming, schedule_dateleaving) VALUES (@bf, @pp, @ga, @child_id, @arrivaldate, @schedule_datecoming, @schedule_dateleaving)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -179,18 +169,18 @@ namespace WpfApp1
                 conn.Open();
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {
-                    cmd.Parameters.AddWithValue("schedule_id", schedule_id);
+
                     cmd.Parameters.AddWithValue("bf", bf);
                     cmd.Parameters.AddWithValue("pp", pp);
                     cmd.Parameters.AddWithValue("ga", ga);
-                    cmd.Parameters.AddWithValue("leave", leave);
+                    cmd.Parameters.AddWithValue("child_id", c.child_id);
+                    cmd.Parameters.AddWithValue("arrivaldate", arrivaldate);
+                   // cmd.Parameters.AddWithValue("weekday")
                     cmd.Parameters.AddWithValue("schedule_datecoming", schedule_datecoming);
                     cmd.Parameters.AddWithValue("schedule_dateleaving", schedule_dateleaving);
-                    cmd.Parameters.AddWithValue("schedule.child_id", c);
                     cmd.ExecuteNonQuery();
                 }
             }
-
         }
       //  public void ReportSick()
         public List<schedule> GetSchedules(Child child)
@@ -205,25 +195,39 @@ namespace WpfApp1
                 {
                     
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday, schedule.schedule_datecoming, schedule_dateleaving FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id ORDER BY schedule.schedule_id DESC";
+                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday, schedule.schedule_datecoming, schedule_dateleaving, arrivaldate FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id ORDER BY schedule.schedule_id DESC";
                     cmd.Parameters.AddWithValue("child.child_id", child.child_id);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            s = new schedule()
+
+
+                            s = new schedule();
+                            s.schedule_id = reader.GetInt32(0);
+                            s.breakfast = reader.GetBoolean(1);
+                            if ((!reader.IsDBNull(2)))
                             {
-                                schedule_id = reader.GetInt32(0),
-                                breakfast = reader.GetBoolean(1),
-                                sickleave = reader.GetDateTime(2),
-                                pick_up = reader.GetString(3),
-                                goalone = reader.GetBoolean(4),
-                                child_id = reader.GetInt32(5),
-                                leave = reader.GetDateTime(6),
-                                weekday = reader.GetString(7),
-                                schedule_datecoming = reader.GetDateTime(8),
-                                schedule_dateleave = reader.GetDateTime(9)
-                            };
+                            s.sickleave = reader.GetDateTime(2);
+                            }
+                            s.pick_up = reader.GetString(3);
+                            s.goalone = reader.GetBoolean(4);
+                            s.child_id = reader.GetInt32(5);
+                            if ((!reader.IsDBNull(7)))
+                            {
+                                s.leave = reader.GetDateTime(6);
+                            }
+                            if ((!reader.IsDBNull(7)))
+                            {
+                                s.weekday = reader.GetString(7);
+                            }
+                            s.schedule_datecoming = reader.GetDateTime(8);
+                            s.schedule_dateleaving = reader.GetDateTime(9);
+                            if ((!reader.IsDBNull(7)))
+                            {
+                                s.arrivaldate = reader.GetDateTime(10);
+                            }
+
                             schedules.Add(s);
                         }
                     }
@@ -287,25 +291,25 @@ namespace WpfApp1
             return schedules;
 
         }
-        public void Attendence (int a_id, int s_id, int ch_id, DateTime departure, bool attending)
+        public void Attendence (int s_id, int ch_id, DateTime departure, bool attending)
         {
             attendence a = new attendence();
-            a.attendence_id = a_id;
             a.staff_id = s_id;
-            a.child_id = ch_id;
+            a.child_id =  ch_id;
             a.departure = departure;
             a.attending = attending;
 
-            string stmt = "INSERT INTO attendence(attendence_id, staff_id, child_id, departure, attending) VALUES (@a_id, @c_id, @s_id, @ch_id, @departure, @attending)";
+            //Jag orkar inte mer, vill inte vara kvar, jag längtar efter er min kära Mor och Far
+            //programmeringen går skit, jag känner mig så klen, jag hunsas hit och dit. Jag trivs inte i grupparbete.
+
+            string stmt = "INSERT INTO attendence(staff_id, child_id, departure, attending) VALUES (@a_id, @c_id, @s_id, @ch_id, @departure, @attending)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
                 conn.Open();
                 using (var cmd = new NpgsqlCommand(stmt, conn))
-                {
-
-                    cmd.Parameters.AddWithValue("a_id", a_id);
+                {                   
                     cmd.Parameters.AddWithValue("s_id", s_id);
                     cmd.Parameters.AddWithValue("ch_id", ch_id);
                     cmd.Parameters.AddWithValue("departure", departure);

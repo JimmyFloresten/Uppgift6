@@ -26,7 +26,7 @@ namespace WpfApp1
             listView1.ItemsSource = null;
             listView1.ItemsSource = db.getAllclasChildren();
         }
-
+        Child selectedChild;
         private void listView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Child selectedChild = new Child();
@@ -44,13 +44,35 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            dbOperations db = new dbOperations();
-            db.Attendence();
+           
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private bool isHere()
+        {
+            attendence attendences = new attendence();
+            if (checkBox.IsChecked == true)
+            {
+                attendences.attending = true;
+            }
+            else
+            {
+                attendences.attending = false;
+            }
+            return attendences.attending;
+        }
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            attendence attendencec = new attendence();
+            attendencec.staff_id = 1;
+            dbOperations db = new dbOperations();
+            int s_id = attendencec.staff_id;
+            
+            
+            //db.Attendence(s_id, selectedChild, );
         }
     }
 }
