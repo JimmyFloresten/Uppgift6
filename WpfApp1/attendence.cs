@@ -10,8 +10,6 @@ namespace WpfApp1
     {
         public int attendence_id { get; set; }
 
-        public int clas_id { get; set; }
-
         public int staff_id { get; set; }
 
         public int child_id { get; set; }       

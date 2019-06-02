@@ -28,6 +28,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <CheckBox x:Name="checkBox" Content="Gått hem" HorizontalAlignment="Left" Margin="561,331,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

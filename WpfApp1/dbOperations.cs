@@ -15,10 +15,10 @@ namespace WpfApp1
         // Kallar på anslutningen till databasen
 
 
-        public string GetUniqueNumber()
+        public int GetUniqueNumber()
         {
-            string s;
-            s = DateTime.Now.ToString("yyMMddHHmmss");
+            int s;
+            s = int.Parse(DateTime.Now.ToString("yyMMddHHmmss"));
 
             return s;
             
@@ -186,7 +186,7 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("leave", leave);
                     cmd.Parameters.AddWithValue("schedule_datecoming", schedule_datecoming);
                     cmd.Parameters.AddWithValue("schedule_dateleaving", schedule_dateleaving);
-                    cmd.Parameters.AddWithValue("schedule.child_id", c);
+                   // cmd.Parameters.AddWithValue("schedule.child_id", c);
                     cmd.ExecuteNonQuery();
                 }
             }

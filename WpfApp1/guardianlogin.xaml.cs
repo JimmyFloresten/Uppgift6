@@ -101,7 +101,7 @@ namespace WpfApp1
             dbOperations db = new dbOperations();
             string date = Calender.ToString();
             txtvisadatum1.Text = date.ToString();
-            db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
+           // db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
           
         }
     }
