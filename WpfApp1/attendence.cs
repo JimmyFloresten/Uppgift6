@@ -16,9 +16,9 @@ namespace WpfApp1
 
         public int child_id { get; set; }
 
-        public int arrival { get; set; }
+        public DateTime arrival { get; set; }
 
-        public int departure { get; set; }
+        public DateTime departure { get; set; }
 
         public override string ToString()
         {
