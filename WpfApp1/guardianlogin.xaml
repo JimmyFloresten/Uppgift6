@@ -37,7 +37,12 @@
         <CheckBox x:Name="checkhemsjälv" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="412,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <Calendar x:Name="Calender" Margin="23,351,998,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5" SelectedDatesChanged="calender_selectedDate"/>
         <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="412,564,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="textBox_schedule" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtvisadatum1" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtcoming" HorizontalAlignment="Left" Height="23" Margin="227,429,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtleaving" HorizontalAlignment="Left" Height="23" Margin="227,493,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy" Content="datum" HorizontalAlignment="Left" Margin="227,342,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy1" Content="Lämning" HorizontalAlignment="Left" Margin="227,398,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="Hämtning" HorizontalAlignment="Left" Margin="227,462,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
