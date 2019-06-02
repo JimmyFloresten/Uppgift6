@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="teacherlogin" Height="650" Width="1200">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="236" Margin="561,42,0,0" VerticalAlignment="Top" Width="589" SelectionChanged="ListView_SelectionChanged">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="236" Margin="561,42,0,0" VerticalAlignment="Top" Width="589">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
@@ -29,6 +29,7 @@
             </ListView.View>
         </ListView>
         <CheckBox x:Name="checkBox" Content="Gått hem" HorizontalAlignment="Left" Margin="561,331,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="896,331,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

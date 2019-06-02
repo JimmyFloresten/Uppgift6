@@ -44,35 +44,37 @@ namespace WpfApp1
             
 
         }
+        private bool btn = false;
 
-        public bool attending()
+        /*public bool attending()
         {
             attendence attendences = new attendence();
+            
             if(checkBox.IsChecked == true)
             {
-                attendence.attending = true;
+                attendences.attending = true;
             }
             else
             {
-                attendence.attending = false;
+                attendences.attending = false;
             }
-            return attendence.attending;
-        }
+            return attendences.attending;
+        }*/
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            btn = true;
+
+            Child selectedChild = new Child();
             dbOperations db = new dbOperations();
             staff staffs = new staff();
             staffs.staff_id = 1;
-            int s_id = staffs.staff_id;
-            int a_id = db.GetUniqueNumber();
             DateTime departure = GetTime();
             listView1.SelectedItem = selectedChild;
 
-            db.Attendence(a_id, , s_id, selectedChild, attending());
-           
+            db.Attendence(staffs.staff_id, selectedChild.child_id, GetTime(), /*attending()*/ btn);
+            MessageBox.Show($"{selectedChild} har gått hem");
         }
-
-       
     }
 }

@@ -287,16 +287,15 @@ namespace WpfApp1
             return schedules;
 
         }
-        public void Attendence (int a_id, int s_id, int ch_id, DateTime departure, bool attending)
+        public void Attendence (int s_id, int ch_id, DateTime departure, bool attending)
         {
-            attendence a = new attendence();
-            a.attendence_id = a_id;
+            attendence a = new attendence();          
             a.staff_id = s_id;
             a.child_id = ch_id;
             a.departure = departure;
             a.attending = attending;
 
-            string stmt = "INSERT INTO attendence(attendence_id, staff_id, child_id, departure, attending) VALUES (@a_id, @c_id, @s_id, @ch_id, @departure, @attending)";
+            string stmt = "INSERT INTO attendence(staff_id, child_id, departure, attending) VALUES (@s_id, @ch_id, @departure, @attending)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -305,7 +304,6 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {
 
-                    cmd.Parameters.AddWithValue("a_id", a_id);
                     cmd.Parameters.AddWithValue("s_id", s_id);
                     cmd.Parameters.AddWithValue("ch_id", ch_id);
                     cmd.Parameters.AddWithValue("departure", departure);
