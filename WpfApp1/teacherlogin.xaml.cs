@@ -35,26 +35,22 @@ namespace WpfApp1
             listView.ItemsSource = db.GetSchedules((Child)listView1.SelectedItem);
         }
 
-        public static void GetTime()
+        public DateTime GetTime()
         {
             DateTime localDate = DateTime.Now;
             DateTime utcDate = DateTime.UtcNow;
+
+            return localDate;
             
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
-        private bool isHere()
+        private bool btn = false;
+
+        /*public bool attending()
         {
             attendence attendences = new attendence();
-            if (checkBox.IsChecked == true)
+            
+            if(checkBox.IsChecked == true)
             {
                 attendences.attending = true;
             }
@@ -63,16 +59,22 @@ namespace WpfApp1
                 attendences.attending = false;
             }
             return attendences.attending;
-        }
-        private void button_Click_1(object sender, RoutedEventArgs e)
+        }*/
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            attendence attendencec = new attendence();
-            attendencec.staff_id = 1;
+            btn = true;
+
+            Child selectedChild = new Child();
             dbOperations db = new dbOperations();
-            int s_id = attendencec.staff_id;
-            
-            
-            //db.Attendence(s_id, selectedChild, );
+            staff staffs = new staff();
+            staffs.staff_id = 1;
+            DateTime departure = GetTime();
+            listView1.SelectedItem = selectedChild;
+
+            db.Attendence(staffs.staff_id, selectedChild.child_id, GetTime(), /*attending()*/ btn);
+            MessageBox.Show($"{selectedChild} har gått hem");
         }
     }
 }
