@@ -19,7 +19,8 @@ namespace WpfApp1
     /// </summary>
     public partial class guardianlogin : Window
     {
-        
+        dbOperations db = new dbOperations();
+
         public guardianlogin()
         {
             dbOperations db = new dbOperations();
@@ -38,6 +39,12 @@ namespace WpfApp1
             listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
+        private void RefreshListview()
+        {
+            dbOperations db = new dbOperations();
+            listView_schedule.ItemsSource = db.ReportSick((Child )listView.SelectedItem);
+        }
+
         private void calender_(object sender, SelectionChangedEventArgs e)
         {
 
@@ -50,6 +57,16 @@ namespace WpfApp1
 
          
         }
+
+
+        private void ButtonSick_Click(object sender, RoutedEventArgs e)
+        {
+
+            dbOperations db = new dbOperations();
+
+            listView_schedule.ItemsSource = db.ReportSick(((Child)listView.SelectedItem));
+        }
+
         public bool checkhemsjalv()
         {
 
@@ -86,6 +103,7 @@ namespace WpfApp1
             txtvisadatum1.Text = date.ToString();
 
             db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtComing.Text), DateTime.Parse(txtLeaving.Text));
+
         }
     }
 }

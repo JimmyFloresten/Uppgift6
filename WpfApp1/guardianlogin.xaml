@@ -38,6 +38,7 @@
         <Calendar x:Name="Calender" Margin="23,351,998,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5" SelectedDatesChanged="calender_selectedDate"/>
         <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="412,564,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="textBox_schedule" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="715,363,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
