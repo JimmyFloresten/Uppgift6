@@ -19,7 +19,7 @@ namespace WpfApp1
     /// </summary>
     public partial class guardianlogin : Window
     {
-        
+
         public guardianlogin()
         {
             dbOperations db = new dbOperations();
@@ -31,10 +31,10 @@ namespace WpfApp1
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-        Child selectedChild = new Child();
+            Child selectedChild = new Child();
             dbOperations db = new dbOperations();
             listView.SelectedItem = selectedChild;
-         //   listView_schedule.ItemsSource = db.GetSchedules(selectedChild);
+            //   listView_schedule.ItemsSource = db.GetSchedules(selectedChild);
             listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
@@ -48,7 +48,7 @@ namespace WpfApp1
             string date = Calender.ToString();
             txtvisadatum1.Text = date.ToString();
 
-         
+
         }
         public bool checkhemsjalv()
         {
@@ -79,13 +79,20 @@ namespace WpfApp1
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {
-      
+
             dbOperations db = new dbOperations();
 
             string date = Calender.ToString();
             txtvisadatum1.Text = date.ToString();
 
-            db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtComing.Text), DateTime.Parse(txtLeaving.Text));
+            db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
+        }
+
+        private void ButtonSick_Click(object sender, RoutedEventArgs e)
+        {
+            dbOperations db = new dbOperations();
+
+            listView_schedule.ItemsSource = db.ReportSick(((Child)listView.SelectedItem));
         }
     }
 }
