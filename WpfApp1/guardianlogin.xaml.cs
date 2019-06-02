@@ -81,11 +81,10 @@ namespace WpfApp1
         {
 
             dbOperations db = new dbOperations();
-
             string date = Calender.ToString();
             txtvisadatum1.Text = date.ToString();
 
-            db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
+            db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
         }
 
         private void ButtonSick_Click(object sender, RoutedEventArgs e)
@@ -93,6 +92,11 @@ namespace WpfApp1
             dbOperations db = new dbOperations();
 
             listView_schedule.ItemsSource = db.ReportSick(((Child)listView.SelectedItem));
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
