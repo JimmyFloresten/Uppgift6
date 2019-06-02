@@ -162,7 +162,7 @@ namespace WpfApp1
 
             
 
-            string stmt = "INSERT INTO schedule(schedule_id, breakfast, pick_up, goalone, leave, sickleave schedule_datecoming, weekday, schedule_dateleaving schedule.child_id) VALUES (@schedule_id @bf, @pp, @ga, @leave, @sickleave @schedule_datecoming, @schedule_dateleaving @schedule.child_id)";
+            string stmt = "INSERT INTO schedule(schedule_id, breakfast, sickleave, pick_up, goalone, child_id, leave, weekday, schedule_datecoming, schedule_dateleaving) VALUES (@schedule_id @bf, @pp, @ga, @leave, @sickleave @schedule_datecoming, @schedule_dateleaving @child_id)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -178,7 +178,7 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("leave", leave);
                     cmd.Parameters.AddWithValue("schedule_datecoming", schedule_datecoming);
                     cmd.Parameters.AddWithValue("schedule_dateleaving", schedule_dateleaving);
-                    cmd.Parameters.AddWithValue("schedule.child_id", c);
+                    cmd.Parameters.AddWithValue("child_id", c);
                     cmd.ExecuteNonQuery();
                 }
             }
