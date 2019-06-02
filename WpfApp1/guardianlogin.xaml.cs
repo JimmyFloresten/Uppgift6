@@ -81,11 +81,7 @@ namespace WpfApp1
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
-            dbOperations db = new dbOperations();
-            string date = Calender.ToString();
-            txtvisadatum1.Text = date.ToString();
-            db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text), selectedChild);
-            listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
+        
         }
 
         private void ButtonSick_Click(object sender, RoutedEventArgs e)
@@ -98,6 +94,15 @@ namespace WpfApp1
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            dbOperations db = new dbOperations();
+            string date = Calender.ToString();
+            txtvisadatum1.Text = date.ToString();
+            db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
+          
         }
     }
 }

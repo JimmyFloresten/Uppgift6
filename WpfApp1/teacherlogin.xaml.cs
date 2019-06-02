@@ -47,5 +47,10 @@ namespace WpfApp1
             dbOperations db = new dbOperations();
             db.Attendence();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
