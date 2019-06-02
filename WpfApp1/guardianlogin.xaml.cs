@@ -27,7 +27,7 @@ namespace WpfApp1
             listView.ItemsSource = null;
             listView.ItemsSource = db.GetEriksChildren();
         }
-
+        Child selectedChild;
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -83,8 +83,8 @@ namespace WpfApp1
             dbOperations db = new dbOperations();
             string date = Calender.ToString();
             txtvisadatum1.Text = date.ToString();
-
-            db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
+            db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text), selectedChild);
+            listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
         private void ButtonSick_Click(object sender, RoutedEventArgs e)
