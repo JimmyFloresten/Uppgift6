@@ -152,7 +152,7 @@ namespace WpfApp1
         public void Addschedule(bool bf, string pp, bool ga, DateTime leave, DateTime schedule_datecoming, DateTime schedule_dateleaving)
         {
             schedule s = new schedule();
-            s.schedule_id = schedule_id;
+            s.schedule_id = schedule_ids;
             s.breakfast = bf;
             s.pick_up = pp;
             s.goalone = ga;
