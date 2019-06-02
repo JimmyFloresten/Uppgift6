@@ -74,7 +74,7 @@ namespace WpfApp1
             listView1.SelectedItem = selectedChild;
 
             db.Attendence(staffs.staff_id, selectedChild.child_id, GetTime(), /*attending()*/ btn);
-            MessageBox.Show($"{selectedChild} har gått hem");
+            MessageBox.Show($"{selectedChild.fname} har gått hem");
         }
     }
 }

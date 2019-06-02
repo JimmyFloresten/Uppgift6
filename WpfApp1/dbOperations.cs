@@ -167,7 +167,7 @@ namespace WpfApp1
             s.goalone = ga;
             s.leave = leave;
             s.schedule_datecoming = schedule_datecoming;
-            s.schedule_dateleave = schedule_dateleaving;
+            s.schedule_dateleaving = schedule_dateleaving;
 
             
 
@@ -222,7 +222,7 @@ namespace WpfApp1
                                 leave = reader.GetDateTime(6),
                                 weekday = reader.GetString(7),
                                 schedule_datecoming = reader.GetDateTime(8),
-                                schedule_dateleave = reader.GetDateTime(9)
+                                schedule_dateleaving = reader.GetDateTime(9)
                             };
                             schedules.Add(s);
                         }
