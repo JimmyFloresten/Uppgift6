@@ -30,7 +30,7 @@ namespace WpfApp1
 
         public override string ToString()
         {
-            return child_id + " " + breakfast + " " + sickleave.ToString() + " " + pick_up + " " + goalone + " " + leave.ToString() + " " + weekday;
+            return child_id + " " + breakfast + " " + sickleave + " " + pick_up + " " + goalone + " " + leave + " " + weekday + " " + schedule_datecoming + " " + schedule_dateleave;
         }
 
     }

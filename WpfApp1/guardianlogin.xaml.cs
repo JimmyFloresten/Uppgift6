@@ -19,8 +19,7 @@ namespace WpfApp1
     /// </summary>
     public partial class guardianlogin : Window
     {
-        dbOperations db = new dbOperations();
-
+        
         public guardianlogin()
         {
             dbOperations db = new dbOperations();
@@ -39,12 +38,6 @@ namespace WpfApp1
             listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
-        private void RefreshListview()
-        {
-            dbOperations db = new dbOperations();
-            listView_schedule.ItemsSource = db.ReportSick((Child )listView.SelectedItem);
-        }
-
         private void calender_(object sender, SelectionChangedEventArgs e)
         {
 
@@ -53,17 +46,46 @@ namespace WpfApp1
         private void calender_selectedDate(object sender, SelectionChangedEventArgs e)
         {
             string date = Calender.ToString();
-            textBox_schedule.Text = date.ToString();
+            txtvisadatum1.Text = date.ToString();
 
          
         }
-
-        private void ButtonSick_Click(object sender, RoutedEventArgs e)
+        public bool checkhemsjalv()
         {
 
+            schedule schedule = new schedule();
+            if (checkhemsjälv.IsChecked == true)
+            {
+                schedule.goalone = true;
+            }
+            else
+            {
+                schedule.goalone = false;
+            }
+            return schedule.goalone;
+        }
+        public bool breakfast()
+        {
+            schedule schedule = new schedule();
+            if (checkfrukost.IsChecked == true)
+            {
+                schedule.breakfast = true;
+            }
+            else
+            {
+                schedule.breakfast = false;
+            }
+            return schedule.breakfast;
+        }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+      
             dbOperations db = new dbOperations();
 
-            listView_schedule.ItemsSource=db.ReportSick(((Child)listView.SelectedItem));
+            string date = Calender.ToString();
+            txtvisadatum1.Text = date.ToString();
+
+            db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), DateTime.Parse(txtComing.Text), DateTime.Parse(txtLeaving.Text));
         }
     }
 }
