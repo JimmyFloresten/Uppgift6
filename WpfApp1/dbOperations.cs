@@ -149,7 +149,7 @@ namespace WpfApp1
             }
         }
         //metod för att lägga till nytt schema-
-        public void Addschedule(int schedule_id, bool bf, string pp, bool ga, DateTime leave, DateTime schedule_datecoming, DateTime schedule_dateleaving, Child c)
+        public void Addschedule(int schedule_id, bool bf, string pp, bool ga, DateTime leave, DateTime schedule_datecoming, DateTime schedule_dateleaving)
         {
             schedule s = new schedule();
             s.schedule_id = schedule_id;
@@ -162,7 +162,7 @@ namespace WpfApp1
 
             
 
-            string stmt = "INSERT INTO schedule(schedule_id, breakfast, sickleave, pick_up, goalone, child_id, leave, weekday, schedule_datecoming, schedule_dateleaving) VALUES (@schedule_id @bf, @pp, @ga, @leave, @sickleave @schedule_datecoming, @schedule_dateleaving @child_id)";
+            string stmt = "INSERT INTO schedule(schedule_id, breakfast, pick_up, goalone, leave, schedule_datecoming, schedule_dateleaving) VALUES (@shedule_id @bf, @pp, @ga, @leave, @schedule_datecoming, @schedule_dateleaving)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -170,7 +170,6 @@ namespace WpfApp1
                 conn.Open();
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {
-                  
                     cmd.Parameters.AddWithValue("schedule_id", schedule_id);
                     cmd.Parameters.AddWithValue("bf", bf);
                     cmd.Parameters.AddWithValue("pp", pp);
@@ -178,7 +177,7 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("leave", leave);
                     cmd.Parameters.AddWithValue("schedule_datecoming", schedule_datecoming);
                     cmd.Parameters.AddWithValue("schedule_dateleaving", schedule_dateleaving);
-                    cmd.Parameters.AddWithValue("child_id", c);
+                  //  cmd.Parameters.AddWithValue("child_id", c);
                     cmd.ExecuteNonQuery();
                 }
             }
