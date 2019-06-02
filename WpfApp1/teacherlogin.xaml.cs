@@ -34,5 +34,10 @@ namespace WpfApp1
             listView1.SelectedItem = selectedChild;
             listView.ItemsSource = db.GetSchedules((Child)listView1.SelectedItem);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

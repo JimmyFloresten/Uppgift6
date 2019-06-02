@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="teacherlogin" Height="650" Width="1200">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="236" Margin="561,42,0,0" VerticalAlignment="Top" Width="589">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="236" Margin="561,42,0,0" VerticalAlignment="Top" Width="589" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
@@ -28,6 +28,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="button" Content="Kommit" HorizontalAlignment="Left" Margin="561,336,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>
