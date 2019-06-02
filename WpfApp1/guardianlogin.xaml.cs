@@ -57,6 +57,7 @@ namespace WpfApp1
             if (checkhemsjälv.IsChecked == true)
             {
                 schedule.goalone = true;
+                txt_pickup.Text = "Själv";
             }
             else
             {

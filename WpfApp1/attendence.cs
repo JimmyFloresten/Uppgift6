@@ -14,15 +14,15 @@ namespace WpfApp1
 
         public int staff_id { get; set; }
 
-        public int child_id { get; set; }
-
-        public DateTime arrival { get; set; }
+        public int child_id { get; set; }       
 
         public DateTime departure { get; set; }
 
+        public bool attending { get; set; }
+
         public override string ToString()
         {
-            return child_id + " " + staff_id + " " + arrival + " " + departure;
+            return child_id + " " + staff_id + " " + departure + " " + attending;
  
         }
     }

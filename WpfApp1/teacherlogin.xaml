@@ -28,7 +28,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="button" Content="Kommit" HorizontalAlignment="Left" Margin="561,336,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

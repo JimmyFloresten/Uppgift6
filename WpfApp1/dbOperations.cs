@@ -15,6 +15,15 @@ namespace WpfApp1
         // Kallar på anslutningen till databasen
 
 
+        public string GetUniqueNumber()
+        {
+            string s;
+            s = DateTime.Now.ToString("yyMMddHHmmss");
+
+            return s;
+            
+        }
+
        public List<Child> GetEriksChildren() 
         {
             Child c;
@@ -162,7 +171,7 @@ namespace WpfApp1
 
             
 
-            string stmt = "INSERT INTO schedule(schedule_id, breakfast, pick_up, goalone, leave, sickleave schedule_datecoming, weekday, schedule_dateleaving schedule.child_id) VALUES (@schedule_id @bf, @pp, @ga, @leave, @sickleave @schedule_datecoming, @schedule_dateleaving @schedule.child_id)";
+            string stmt = "INSERT INTO schedule(schedule_id, breakfast, sickleave, pick_up, goalone, child_id, leave, weekday, schedule_datecoming, schedule_dateleaving) VALUES (@schedule_id @bf, @pp, @ga, @leave, @sickleave @schedule_datecoming, @schedule_dateleaving @child_id)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -178,7 +187,7 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("leave", leave);
                     cmd.Parameters.AddWithValue("schedule_datecoming", schedule_datecoming);
                     cmd.Parameters.AddWithValue("schedule_dateleaving", schedule_dateleaving);
-                    cmd.Parameters.AddWithValue("schedule.child_id", c);
+                    cmd.Parameters.AddWithValue("child_id", c);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -279,17 +288,16 @@ namespace WpfApp1
             return schedules;
 
         }
-        public void Attendence (int a_id, int c_id, int s_id, int ch_id, DateTime arrival, DateTime departure)
+        public void Attendence (int a_id, int s_id, int ch_id, DateTime departure, bool attending)
         {
             attendence a = new attendence();
             a.attendence_id = a_id;
-            a.clas_id = c_id;
             a.staff_id = s_id;
             a.child_id = ch_id;
-            a.arrival = arrival;
             a.departure = departure;
+            a.attending = attending;
 
-            string stmt = "INSERT INTO attendence(attendence_id, clas_id, staff_id, child_id, arrival, departure) VALUES (@a_id, @c_id, @s_id, @ch_id, @arrival, @departure)";
+            string stmt = "INSERT INTO attendence(attendence_id, staff_id, child_id, departure, attending) VALUES (@a_id, @c_id, @s_id, @ch_id, @departure, @attending)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -299,11 +307,10 @@ namespace WpfApp1
                 {
 
                     cmd.Parameters.AddWithValue("a_id", a_id);
-                    cmd.Parameters.AddWithValue("c_id", c_id);
                     cmd.Parameters.AddWithValue("s_id", s_id);
                     cmd.Parameters.AddWithValue("ch_id", ch_id);
-                    cmd.Parameters.AddWithValue("arrival", arrival);
                     cmd.Parameters.AddWithValue("departure", departure);
+                    cmd.Parameters.AddWithValue("attending", attending);
                     cmd.ExecuteNonQuery();
                 }
             }

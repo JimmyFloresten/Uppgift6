@@ -35,9 +35,17 @@ namespace WpfApp1
             listView.ItemsSource = db.GetSchedules((Child)listView1.SelectedItem);
         }
 
+        public static void GetTime()
+        {
+            DateTime localDate = DateTime.Now;
+            DateTime utcDate = DateTime.UtcNow;
+            
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            dbOperations db = new dbOperations();
+            db.Attendence();
         }
     }
 }
