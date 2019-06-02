@@ -44,7 +44,6 @@ namespace WpfApp1
             
 
         }
-        private bool btn = false;
 
         /*public bool attending()
         {
@@ -61,6 +60,7 @@ namespace WpfApp1
             return attendences.attending;
         }*/
 
+        private bool btn = false;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

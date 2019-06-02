@@ -297,6 +297,9 @@ namespace WpfApp1
 
             string stmt = "INSERT INTO attendence(staff_id, child_id, departure, attending) VALUES (@s_id, @ch_id, @departure, @attending)";
 
+            // jag orkar inte mer, vill inte vara kvar, jag längtar efter er min kära mor och far. 
+            //maten smakar skit
+
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
