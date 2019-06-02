@@ -19,7 +19,7 @@
         <Label x:Name="label" Content="Eriks barn" HorizontalAlignment="Left" Margin="23,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.064,0.949"/>
         <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="418,302,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="526,302,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.542,0.523"/>
-        <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="588">
+        <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="744">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
@@ -27,7 +27,9 @@
                     <GridViewColumn Header="Hämtas av" Width="70" DisplayMemberBinding="{Binding pick_up}"/>
                     <GridViewColumn Header="Får gå själv" Width="80" DisplayMemberBinding="{Binding goalone}"/>
                     <GridViewColumn Header="Ledighet" Width="140" DisplayMemberBinding="{Binding leave}"/>
-                    <GridViewColumn Header="Veckodag" Width="100" DisplayMemberBinding="{Binding weekday}"/>
+                    <GridViewColumn Header="Lämningstid" Width="100" DisplayMemberBinding="{Binding schedule_datecoming}"/>
+                    <GridViewColumn Header="Hämtningstid" Width="100" DisplayMemberBinding="{Binding schedule_dateleaving}"/>
+                    <GridViewColumn Header="Datum" Width="100" DisplayMemberBinding="{Binding arrivaldate}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -37,15 +39,13 @@
         <CheckBox x:Name="checkhemsjälv" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="412,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <Calendar x:Name="Calender" Margin="23,351,998,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5" SelectedDatesChanged="calender_selectedDate"/>
         <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="412,564,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
-        <TextBox x:Name="txtvisadatum1" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtvisadatum1" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10" MaxLines="1"/>
         <TextBox x:Name="txtcoming" HorizontalAlignment="Left" Height="23" Margin="227,429,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtleaving" HorizontalAlignment="Left" Height="23" Margin="227,493,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label1_Copy" Content="datum" HorizontalAlignment="Left" Margin="227,342,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy1" Content="Lämning" HorizontalAlignment="Left" Margin="227,398,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy2" Content="Hämtning" HorizontalAlignment="Left" Margin="227,462,0,0" VerticalAlignment="Top"/>
         <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="685,372,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSick_Click"/>
-        <TextBox x:Name="txtscheduleID" HorizontalAlignment="Left" Height="23" Margin="412,366,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" RenderTransformOrigin="0.458,0.652"/>
-        <Label x:Name="label3" Content="schemaid" HorizontalAlignment="Left" Margin="418,340,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -22,15 +22,17 @@ namespace WpfApp1
 
         public DateTime leave { get; set; }
 
-        public DateTime schedule_dateleave { get; set; }
+        public DateTime schedule_dateleaving { get; set; }
 
         public DateTime schedule_datecoming { get; set; }
 
         public string weekday { get; set; }
 
+        public DateTime arrivaldate { get; set; }
+
         public override string ToString()
         {
-            return child_id + " " + breakfast + " " + sickleave + " " + pick_up + " " + goalone + " " + leave + " " + weekday + " " + schedule_datecoming + " " + schedule_dateleave;
+            return child_id + " " + breakfast + " " + sickleave.ToShortTimeString() + " " + pick_up + " " + goalone + " " + leave + " " + weekday + " " + schedule_datecoming.ToShortTimeString() + " " + schedule_dateleaving.ToShortTimeString() + " " + arrivaldate;
         }
 
     }
