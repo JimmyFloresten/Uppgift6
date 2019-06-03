@@ -38,10 +38,6 @@ namespace WpfApp1
             listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
-        private void calender_(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void calender_selectedDate(object sender, SelectionChangedEventArgs e)
         {
@@ -78,30 +74,21 @@ namespace WpfApp1
             }
             return schedule.breakfast;
         }
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-
-        
-        }
 
         private void ButtonSick_Click(object sender, RoutedEventArgs e)
         {
             dbOperations db = new dbOperations();
-
-            listView_schedule.ItemsSource = db.ReportSick(((Child)listView.SelectedItem));
+            listView_schedule.ItemsSource = db.Sick((()listView.SelectedItem));
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
             dbOperations db = new dbOperations();
             string date = Calender.ToString();
             txtvisadatum1.Text = date.ToString();
-           // db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
+
+           //db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
           
         }
     }

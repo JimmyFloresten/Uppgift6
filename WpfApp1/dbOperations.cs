@@ -192,7 +192,6 @@ namespace WpfApp1
             }
 
         }
-      //  public void ReportSick()
         public List<schedule> GetSchedules(Child child)
         {
             schedule s;
@@ -264,14 +263,40 @@ namespace WpfApp1
             }
 
         }
-        public List<schedule> ReportSick(Child child)
+
+        public void Sick(int schedule_id, DateTime sl)
+        {
+            schedule s = new schedule();
+            s.schedule_id = schedule_id;
+            s.sickleave = sl;
+
+
+
+            string stmt = "UPDATE schedule(schedule_id, sickleave) VALUES (@schedule_id, @sl)";
+
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("schedule_id", schedule_id);
+                    cmd.Parameters.AddWithValue("sl", sl);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
+        /*public List<schedule> ReportSick(Child child)
         {
             List<schedule> schedules = new List<schedule>();
             DateTime sl = new DateTime();
             schedule s = new schedule();        
             s.sickleave = sl;
             
-            string stmt = "INSERT INTO schedule(sickleave VALUES (@sl)";
+            string stmt = "UPDATE schedule(sickleave VALUES (@sl)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -280,11 +305,11 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {                  
                     cmd.Parameters.AddWithValue("sl", sl);                  
-                    //cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 }
                 schedules.Add(s);
             }
-            return schedules;
+            return schedules;*/
 
         }
         public void Attendence (int s_id, int ch_id, DateTime departure, bool attending)
