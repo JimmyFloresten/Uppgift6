@@ -79,6 +79,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="attendence.cs" />
+    <Compile Include="doChild.xaml.cs">
+      <DependentUpon>doChild.xaml</DependentUpon>
+    </Compile>
     <Compile Include="learn.cs" />
     <Compile Include="guardian.cs" />
     <Compile Include="guardianlogin.xaml.cs">
@@ -90,6 +93,10 @@
     <Compile Include="teacherlogin.xaml.cs">
       <DependentUpon>teacherlogin.xaml</DependentUpon>
     </Compile>
+    <Page Include="doChild.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="guardianlogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

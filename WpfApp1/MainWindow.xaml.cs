@@ -76,5 +76,12 @@ namespace WpfApp1
             teacherlogin.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            doChild doChild = new doChild();
+            doChild.Show();
+            this.Hide();
+        }
     }
 }

@@ -30,6 +30,15 @@
         </ListView>
         <CheckBox x:Name="checkBox" Content="Gått hem" HorizontalAlignment="Left" Margin="561,331,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="896,331,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ListView x:Name="listViewGuardian" HorizontalAlignment="Left" Height="195" Margin="55,287,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listViewGuardian_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
+                    <GridViewColumn Header="Efternamn" Width="100" DisplayMemberBinding="{Binding lname}"/>
+                    <GridViewColumn Header="Telefon" Width="100" DisplayMemberBinding="{Binding phone}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

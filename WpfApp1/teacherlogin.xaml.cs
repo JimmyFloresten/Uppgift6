@@ -27,12 +27,15 @@ namespace WpfApp1
             listView1.ItemsSource = db.getAllclasChildren();
         }
         Child selectedChild;
+        guardian_child selectedGuardian;
         private void listView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Child selectedChild = new Child();
+            guardian_child selectedGuardian = new guardian_child();
             dbOperations db = new dbOperations();
             listView1.SelectedItem = selectedChild;
             listView.ItemsSource = db.GetSchedules((Child)listView1.SelectedItem);
+           // listViewGuardian.ItemsSource = db.GetGuardian((guardian_child)listView1.SelectedItem);
         }
 
         public DateTime GetTime()
@@ -61,6 +64,14 @@ namespace WpfApp1
             listView1.SelectedItem = selectedChild;
             db.Attendence(staffs.staff_id, (Child)listView1.SelectedItem, GetTime(), btn);
             MessageBox.Show($"{selectedChild.fname} har gått hem");
+        }
+
+        private void listViewGuardian_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Child selectedChild = new Child();
+            dbOperations db = new dbOperations();
+            listView1.SelectedItem = selectedChild;
+            
         }
     }
 }

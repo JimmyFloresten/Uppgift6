@@ -10,11 +10,13 @@ namespace WpfApp1
     {
         public int guardian_id { get; set; }
         public string fname { get; set; }
+        
+        public string lname { get; set; }
         public int phone { get; set; }
 
         public override string ToString()
         {
-            return fname + " " + phone;
+            return fname + " " + lname + " " + phone;
         }
     }
 }

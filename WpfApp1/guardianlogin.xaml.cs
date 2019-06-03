@@ -75,12 +75,24 @@ namespace WpfApp1
             return schedule.breakfast;
         }
 
-        //private void ButtonSick_Click(object sender, RoutedEventArgs e)
-        //{
-        //    dbOperations db = new dbOperations();
-        //    listView_schedule.ItemsSource = db.Sick((()listView.SelectedItem));
-        //}
-        
+        public DateTime GetTime()
+        {
+            DateTime localDate = DateTime.Now;
+            DateTime utcDate = DateTime.UtcNow;
+
+            return localDate;
+
+
+        }
+        private void ButtonSick_Click(object sender, RoutedEventArgs e)
+        {
+            Child selectedChild = new Child();
+
+            dbOperations db = new dbOperations();
+            listView_schedule.SelectedItem = selectedChild;
+            db.Sick(((Child)listView.SelectedItem), GetTime());
+        }
+
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -92,10 +104,6 @@ namespace WpfApp1
 
         }
 
-        private void ButtonSick_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
     
 }

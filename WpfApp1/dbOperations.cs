@@ -277,22 +277,22 @@ namespace WpfApp1
 
         }
 
-        public void Sick(int schedule_id, DateTime sl)
+        public void Sick(Child schedule_id, DateTime sl)
         {
             schedule s = new schedule();
-            s.schedule_id = schedule_id;
+           // s.schedule_id = schedule_id;
             s.sickleave = sl;
 
 
 
-            string stmt = "UPDATE schedule(schedule_id, sickleave) VALUES (@schedule_id, @sl)";
+            string stmt = "UPDATE schedule SET SICKLEAVE = (@sl) WHERE schedule_id = (@schedule_id)";
 
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
                 conn.Open();
                 using (var cmd = new NpgsqlCommand(stmt, conn))
                 {
-                    cmd.Parameters.AddWithValue("schedule_id", schedule_id);
+                    cmd.Parameters.AddWithValue("schedule_id",schedule_id.child_id);
                     cmd.Parameters.AddWithValue("sl", sl);
                     cmd.ExecuteNonQuery();
                 }
@@ -325,6 +325,89 @@ namespace WpfApp1
         //    return schedules;*/
 
         //}
+
+
+        public void addChild(string c_fname, string c_lname, string special_needs)
+        {
+            Child c = new Child();
+            c.fname = c_fname;
+            c.lname = c_lname;
+            c.special_needs = special_needs;
+
+            string stmt = "INSERT INTO child(fname, lname, special_needs) VALUES (@c_fname, @c_lname, @special_needs)";
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+
+                    cmd.Parameters.AddWithValue("c_fname", c_fname);
+                    cmd.Parameters.AddWithValue("c_lname", c_lname);
+                    cmd.Parameters.AddWithValue("special_needs", special_needs);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public List<guardian> GetGuardian(guardian_child child)
+        {
+            
+            guardian g;
+            List<guardian> guardians = new List<guardian>();
+            // string stmt = "SELECT * FROM child SORT BY ASC";
+            using (var conn = new
+                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT guardian.fname, guardian.lname, guardian.phone FROM guardian INNER JOIN guardian_child ON guardian_child.child_id = guardian.guardian_id WHERE guardian_child.child_id = @child.child_id ORDER BY guardian.lname ASC";
+                    cmd.Parameters.AddWithValue("child.child_id",child.child_id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        
+                        while (reader.Read())
+                        {
+                            g= new guardian()
+                            {
+                                guardian_id = reader.GetInt32(0),
+                                fname = reader.GetString(1),
+                                phone = reader.GetInt32(2),
+                                lname = reader.GetString(3)
+                                
+                            };
+                            guardians.Add(g);
+                        }
+                    }
+                }
+                return guardians;
+            }
+
+        }
+        public void addGuardian(string c_fname, string c_lname, int phone)
+        {
+            guardian g = new guardian();
+            g.fname = c_fname;
+            g.lname = c_lname;
+            g.phone = phone;
+
+            string stmt = "INSERT INTO guardian(fname, lname, phone) VALUES (@c_fname, @c_lname, @phone)";
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+
+                    cmd.Parameters.AddWithValue("c_fname", c_fname);
+                    cmd.Parameters.AddWithValue("c_lname", c_lname);
+                    cmd.Parameters.AddWithValue("phone", phone);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
         public void Attendence(int s_id, Child ch_id, DateTime departure, bool attending)
         {
             attendence a = new attendence();
