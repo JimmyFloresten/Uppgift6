@@ -22,9 +22,9 @@ namespace WpfApp1
 
         public DateTime leave { get; set; }
 
-        public DateTime schedule_dateleaving { get; set; }
+        public TimeSpan schedule_dateleaving { get; set; }
 
-        public DateTime schedule_datecoming { get; set; }
+        public TimeSpan schedule_datecoming { get; set; }
 
         public string weekday { get; set; }
 
@@ -32,7 +32,7 @@ namespace WpfApp1
 
         public override string ToString()
         {
-            return child_id + " " + breakfast + " " + sickleave.ToShortTimeString() + " " + pick_up + " " + goalone + " " + leave + " " + weekday + " " + schedule_datecoming.ToShortTimeString() + " " + schedule_dateleaving.ToShortTimeString() + " " + arrivaldate;
+            return child_id + " " + breakfast + " " + sickleave.ToShortTimeString() + " " + pick_up + " " + goalone + " " + leave + " " + weekday + " " + schedule_datecoming + " " + schedule_dateleaving + " " + arrivaldate;
         }
 
     }

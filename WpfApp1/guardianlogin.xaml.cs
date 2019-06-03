@@ -75,21 +75,27 @@ namespace WpfApp1
             return schedule.breakfast;
         }
 
-        private void ButtonSick_Click(object sender, RoutedEventArgs e)
-        {
-            dbOperations db = new dbOperations();
-            listView_schedule.ItemsSource = db.Sick((()listView.SelectedItem));
-        }
-
+        //private void ButtonSick_Click(object sender, RoutedEventArgs e)
+        //{
+        //    dbOperations db = new dbOperations();
+        //    listView_schedule.ItemsSource = db.Sick((()listView.SelectedItem));
+        //}
+        
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
             dbOperations db = new dbOperations();
-            string date = Calender.ToString();
-            txtvisadatum1.Text = date.ToString();
+            string date = Calender.SelectedDate.ToString();
+            DateTime.Parse(date).Date.ToShortDateString();
+            txtvisadatum1.Text = date;
+            db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), TimeSpan.Parse(txtcoming.Text), TimeSpan.Parse(txtleaving.Text), (Child)listView.SelectedItem);
 
-           //db.Addschedule(int.Parse(txtscheduleID.Text), breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(txtvisadatum1.Text), DateTime.Parse(txtcoming.Text), DateTime.Parse(txtleaving.Text));
-          
+        }
+
+        private void ButtonSick_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
+    
 }

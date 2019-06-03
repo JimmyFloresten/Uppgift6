@@ -45,20 +45,7 @@ namespace WpfApp1
 
         }
 
-        /*public bool attending()
-        {
-            attendence attendences = new attendence();
-            
-            if(checkBox.IsChecked == true)
-            {
-                attendences.attending = true;
-            }
-            else
-            {
-                attendences.attending = false;
-            }
-            return attendences.attending;
-        }*/
+      
 
         private bool btn = false;
 
@@ -72,8 +59,7 @@ namespace WpfApp1
             staffs.staff_id = 1;
             DateTime departure = GetTime();
             listView1.SelectedItem = selectedChild;
-
-            db.Attendence(staffs.staff_id, selectedChild.child_id, GetTime(), /*attending()*/ btn);
+            db.Attendence(staffs.staff_id, (Child)listView1.SelectedItem, GetTime(), btn);
             MessageBox.Show($"{selectedChild.fname} har gått hem");
         }
     }
