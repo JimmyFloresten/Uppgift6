@@ -10,7 +10,7 @@
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="211" Margin="375,82,0,0" VerticalAlignment="Top" Width="785">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Datum" Width="100" DisplayMemberBinding="{Binding arrivaldate}"/>
+                    <GridViewColumn Header="Datum" Width="70" DisplayMemberBinding="{Binding arrivaldate}"/>
                     <GridViewColumn Header="Lämningstid" Width="100" DisplayMemberBinding="{Binding schedule_datecoming}"/>
                     <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
                     <GridViewColumn Header="Hämtningstid" Width="100" DisplayMemberBinding="{Binding schedule_dateleaving}"/>

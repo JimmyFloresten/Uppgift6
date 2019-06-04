@@ -218,14 +218,12 @@ namespace WpfApp1
                 {
 
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday, schedule.schedule_datecoming, schedule.schedule_dateleaving, arrivaldate FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id ORDER BY schedule.schedule_id DESC";
+                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday, schedule.schedule_datecoming, schedule.schedule_dateleaving, arrivaldate FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id ORDER BY arrivaldate ASC";
                     cmd.Parameters.AddWithValue("child.child_id", child.child_id);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-
-
                             s = new schedule();
                             s.schedule_id = reader.GetInt32(0);
                             s.breakfast = reader.GetBoolean(1);
@@ -289,15 +287,12 @@ namespace WpfApp1
                 }
                 return staffs;
             }
-
         }
 
         public void Sick(Child schedule_id, DateTime sl)
         {
             schedule s = new schedule();
             s.sickleave = sl;
-
-
 
             string stmt = "UPDATE schedule SET SICKLEAVE = (@sl) WHERE schedule_id = (@schedule_id)";
 
@@ -363,8 +358,11 @@ namespace WpfApp1
                             if ((!reader.IsDBNull(2)))
                             {
                                 g.phone = reader.GetInt32(2);
-                            } 
-                            g.lname = reader.GetString(3);
+                            }
+                            if ((!reader.IsDBNull(3)))
+                            {
+                                g.lname = reader.GetString(3);
+                            }
                             guardians.Add(g);
 
                         }

@@ -89,9 +89,9 @@ namespace WpfApp1
 
         private void listViewGuardian_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Child selectedChild = new Child();
-            dbOperations db = new dbOperations();
-            listView1.SelectedItem = selectedChild;
+            //Child selectedChild = new Child();
+            //dbOperations db = new dbOperations();
+            //listView1.SelectedItem = selectedChild;
             
         }
     }
