@@ -105,6 +105,20 @@ namespace WpfApp1
             MessageBox.Show($"Ditt schema är nu sparat");
         }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            dbOperations db = new dbOperations();
+            string date = calenderledig.SelectedDate.ToString();
+            DateTime.Parse(date).Date.ToShortDateString();
+            db.addLeave((Child)listView.SelectedItem, DateTime.Parse(date));
+            MessageBox.Show($"Ledighetsanmäld!");
+        }
+
+        private void ledig(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
 
 
 

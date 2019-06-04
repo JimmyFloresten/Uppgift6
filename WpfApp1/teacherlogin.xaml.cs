@@ -37,6 +37,7 @@ namespace WpfApp1
             dbOperations db = new dbOperations();
             listView1.SelectedItem = selectedChild;
             listView.ItemsSource = db.GetSchedules((Child)listView1.SelectedItem);
+            listViewGuardian.ItemsSource = db.GetGuardian((Child)listView1.SelectedItem);
             //visa TOshortdate.
            
         }

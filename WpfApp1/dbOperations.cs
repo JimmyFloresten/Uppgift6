@@ -153,6 +153,27 @@ namespace WpfApp1
             }
         }
         //metod för att lägga till nytt schema-
+
+        public void addLeave(Child c, DateTime leave)
+        {
+            schedule s = new schedule();
+            s.leave = leave;
+
+            string stmt = "INSERT INTO schedule(child_id, leave) VALUES (@child_id, @leave)";
+
+           
+                using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand(stmt, conn))
+                    {
+                        cmd.Parameters.AddWithValue("child_id", c.child_id);
+                        cmd.Parameters.AddWithValue("leave", leave);
+                    cmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
         public void Addschedule(bool bf, string pp, bool ga, DateTime arrivaldate, TimeSpan schedule_datecoming, TimeSpan schedule_dateleaving, Child c)
         {
             schedule s = new schedule();
@@ -271,28 +292,6 @@ namespace WpfApp1
 
         }
 
-        public void Leave(Child schedule_id, DateTime l)
-        {
-            schedule s = new schedule();
-            s.leave = l;
-
-
-            string stmt = "UPDATE schedule SET LEAVE = (@l) WHERE schedule_id = (@schedule_id)";
-
-            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
-            {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand(stmt, conn))
-                {
-                    cmd.Parameters.AddWithValue("schedule_id", schedule_id.child_id);
-                    cmd.Parameters.AddWithValue("l", l);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-
-
-        }
-
         public void Sick(Child schedule_id, DateTime sl)
         {
             schedule s = new schedule();
@@ -337,7 +336,7 @@ namespace WpfApp1
             }
         }
 
-        public List<guardian> GetGuardian(guardian_child child)
+        public List<guardian> GetGuardian(Child child)
         {
             
             guardian g;
@@ -350,22 +349,24 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT guardian.fname, guardian.lname, guardian.phone FROM guardian INNER JOIN guardian_child ON guardian_child.child_id = guardian.guardian_id WHERE guardian_child.child_id = @child.child_id ORDER BY guardian.lname ASC";
-                    cmd.Parameters.AddWithValue("child.child_id",child.child_id);
+                    cmd.CommandText = "SELECT guardian.guardian_id, guardian.fname, guardian.phone, guardian.lname FROM guardian INNER JOIN guardian_child ON guardian_child.child_id = guardian.guardian_id WHERE guardian_child.child_id = @guardian_child.child_id ORDER BY guardian.lname ASC";
+                    cmd.Parameters.AddWithValue("guardian_child.child_id", child.child_id);
                     using (var reader = cmd.ExecuteReader())
                     {
                         
                         while (reader.Read())
                         {
-                            g= new guardian()
+                            g = new guardian();
+
+                            g.guardian_id = reader.GetInt32(0);
+                                g.fname = reader.GetString(1);
+                            if ((!reader.IsDBNull(2)))
                             {
-                                guardian_id = reader.GetInt32(0),
-                                fname = reader.GetString(1),
-                                phone = reader.GetInt32(2),
-                                lname = reader.GetString(3)
-                                
-                            };
+                                g.phone = reader.GetInt32(2);
+                            } 
+                            g.lname = reader.GetString(3);
                             guardians.Add(g);
+
                         }
                     }
                 }
