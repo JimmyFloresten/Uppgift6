@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="teacherlogin" Height="650" Width="1200">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="236" Margin="561,42,0,0" VerticalAlignment="Top" Width="589">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="211" Margin="375,82,0,0" VerticalAlignment="Top" Width="818">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
@@ -16,10 +16,12 @@
                     <GridViewColumn Header="Får gå själv" Width="80" DisplayMemberBinding="{Binding goalone}"/>
                     <GridViewColumn Header="Ledighet" Width="140" DisplayMemberBinding="{Binding leave}"/>
                     <GridViewColumn Header="Veckodag" Width="100" DisplayMemberBinding="{Binding weekday}"/>
+                    <GridViewColumn Header="Lämningstid" Width="100" DisplayMemberBinding="{Binding schedule_datecoming}"/>
+                    <GridViewColumn Header="Hämtningstid" Width="100" DisplayMemberBinding="{Binding schedule_datelevaing}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="211" Margin="55,42,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listView1_SelectionChanged">
+        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="211" Margin="55,82,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listView1_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
@@ -28,9 +30,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <CheckBox x:Name="checkBox" Content="Gått hem" HorizontalAlignment="Left" Margin="561,331,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="896,331,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ListView x:Name="listViewGuardian" HorizontalAlignment="Left" Height="195" Margin="55,287,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listViewGuardian_SelectionChanged">
+        <Button x:Name="button" Content="Gått hem" HorizontalAlignment="Left" Margin="1075,345,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ListView x:Name="listViewGuardian" HorizontalAlignment="Left" Height="195" Margin="55,359,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listViewGuardian_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
@@ -39,6 +40,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Label x:Name="label" Content="Klass 1A" HorizontalAlignment="Left" Margin="55,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
+        <Label x:Name="label_Copy" Content="Schema" HorizontalAlignment="Left" Margin="375,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
+        <Label x:Name="label_Copy1" Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="55,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
 
     </Grid>
 </Window>

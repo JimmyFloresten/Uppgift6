@@ -33,7 +33,7 @@ namespace WpfApp1
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             dbOperations db = new dbOperations();
-            db.addGuardian(txtFirstName.Text, txtLastName.Text, int.Parse(txtPhone.Text));
+            db.addGuardian(textBox_guardian_fname.Text, textBox_guardian_lname.Text, int.Parse(txtPhone.Text));
         }
     }
 }

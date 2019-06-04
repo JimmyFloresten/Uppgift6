@@ -35,7 +35,7 @@ namespace WpfApp1
             dbOperations db = new dbOperations();
             listView.SelectedItem = selectedChild;
             //   listView_schedule.ItemsSource = db.GetSchedules(selectedChild);
-            listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
+            //listView_schedule.ItemsSource = db.GetSchedules((Child)listView.SelectedItem);
         }
 
 
@@ -89,8 +89,9 @@ namespace WpfApp1
             Child selectedChild = new Child();
 
             dbOperations db = new dbOperations();
-            listView_schedule.SelectedItem = selectedChild;
+            listView.SelectedItem = selectedChild;
             db.Sick(((Child)listView.SelectedItem), GetTime());
+            MessageBox.Show("Ditt barn är nu sjukanmält");
         }
 
 
@@ -101,7 +102,7 @@ namespace WpfApp1
             DateTime.Parse(date).Date.ToShortDateString();
             txtvisadatum1.Text = date;
             db.Addschedule(breakfast(), txt_pickup.Text, checkhemsjalv(), DateTime.Parse(date), TimeSpan.Parse(txtcoming.Text), TimeSpan.Parse(txtleaving.Text), (Child)listView.SelectedItem);
-
+            MessageBox.Show($"Ditt schema är nu sparat");
         }
 
     }

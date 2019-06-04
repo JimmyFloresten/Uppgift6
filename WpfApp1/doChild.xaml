@@ -7,16 +7,22 @@
         mc:Ignorable="d"
         Title="doChild" Height="450" Width="800">
     <Grid>
-        <Label x:Name="label" Content="Förnamn" HorizontalAlignment="Left" Margin="36,29,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Efternamn" HorizontalAlignment="Left" Margin="36,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.578,0.556"/>
-        <Label x:Name="lblasdad" Content="Speciella_behov" HorizontalAlignment="Left" Margin="36,136,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="36,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="36,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtSpecial" HorizontalAlignment="Left" Height="23" Margin="36,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button" Content="Lägg till barn" HorizontalAlignment="Left" Margin="81,211,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="259,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy" Content="Telefon (Förälder)" HorizontalAlignment="Left" Margin="259,34,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Lägg till förälder" HorizontalAlignment="Left" Margin="271,98,0,0" VerticalAlignment="Top" Width="90" Click="button1_Click"/>
+        <Label x:Name="label" Content="Förnamn" HorizontalAlignment="Left" Margin="37,115,0,0" VerticalAlignment="Top" Height="28" Width="70"/>
+        <Label x:Name="label1" Content="Efternamn" HorizontalAlignment="Left" Margin="37,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.578,0.556" Height="29" Width="79"/>
+        <Label x:Name="lblasdad" Content="Speciella_behov" HorizontalAlignment="Left" Margin="37,235,0,0" VerticalAlignment="Top" Height="29" Width="110"/>
+        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="25" Margin="37,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="26" Margin="37,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
+        <TextBox x:Name="txtSpecial" HorizontalAlignment="Left" Height="25" Margin="37,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="button" Content="Lägg till barn" HorizontalAlignment="Left" Margin="92,318,0,0" VerticalAlignment="Top" Width="93" Click="button_Click" Height="22"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="25" Margin="490,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+        <Label x:Name="label_Copy" Content="Telefon (Förälder)" HorizontalAlignment="Left" Margin="491,244,0,0" VerticalAlignment="Top" Height="29" Width="139"/>
+        <Button x:Name="button1" Content="Lägg till förälder" HorizontalAlignment="Left" Margin="508,315,0,0" VerticalAlignment="Top" Width="122" Click="button1_Click" Height="22"/>
+        <TextBox x:Name="textBox_guardian_lname" HorizontalAlignment="Left" Height="25" Margin="490,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+        <TextBox x:Name="textBox_guardian_fname" HorizontalAlignment="Left" Height="25" Margin="491,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+        <Label x:Name="label_Copy1" Content="Förnamn" HorizontalAlignment="Left" Margin="490,116,0,0" VerticalAlignment="Top" Height="28" Width="78"/>
+        <Label x:Name="label1_Copy" Content="Efternamn" HorizontalAlignment="Left" Margin="490,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.578,0.556" Height="28" Width="89"/>
+        <Label x:Name="label2" Content="Lägg till nytt barn" HorizontalAlignment="Left" Margin="37,73,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="label2_Copy" Content="Lägg till ny vårdnadshavare" HorizontalAlignment="Left" Margin="488,75,0,0" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>
 </Window>

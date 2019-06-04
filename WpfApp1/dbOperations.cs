@@ -203,7 +203,7 @@ namespace WpfApp1
                 {
 
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday, schedule.schedule_datecoming, schedule_dateleaving, arrivaldate FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id ORDER BY schedule.schedule_id DESC";
+                    cmd.CommandText = "SELECT schedule.schedule_id, schedule.breakfast, schedule.sickleave, schedule.pick_up, schedule.goalone, schedule.child_id, schedule.leave, schedule.weekday, schedule.schedule_datecoming, schedule.schedule_dateleaving, arrivaldate FROM schedule JOIN child ON child.child_id = schedule.child_id  WHERE child.child_id = @child.child_id ORDER BY schedule.schedule_id DESC";
                     cmd.Parameters.AddWithValue("child.child_id", child.child_id);
                     using (var reader = cmd.ExecuteReader())
                     {

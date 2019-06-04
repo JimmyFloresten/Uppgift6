@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="guardianlogin" Height="650" Width="1200">
     <Grid Margin="0,0,-6.667,-2.333">
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="191" Margin="23,52,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listView_SelectionChanged">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="128" Margin="23,82,0,0" VerticalAlignment="Top" Width="324" SelectionChanged="listView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
@@ -16,36 +16,24 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label x:Name="label" Content="Eriks barn" HorizontalAlignment="Left" Margin="23,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.064,0.949"/>
-        <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="418,302,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Mina barn" HorizontalAlignment="Left" Margin="23,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.064,0.949" FontSize="20"/>
+        <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="23,277,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
         <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="526,302,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.542,0.523"/>
-        <ListView x:Name="listView_schedule" HorizontalAlignment="Left" Height="191" Margin="412,52,0,0" VerticalAlignment="Top" Width="744">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Frukost" Width="50" DisplayMemberBinding="{Binding breakfast}"/>
-                    <GridViewColumn Header="Sjukanmäld" Width="140" DisplayMemberBinding="{Binding sickleave}"/>
-                    <GridViewColumn Header="Hämtas av" Width="70" DisplayMemberBinding="{Binding pick_up}"/>
-                    <GridViewColumn Header="Får gå själv" Width="80" DisplayMemberBinding="{Binding goalone}"/>
-                    <GridViewColumn Header="Ledighet" Width="140" DisplayMemberBinding="{Binding leave}"/>
-                    <GridViewColumn Header="Lämningstid" Width="100" DisplayMemberBinding="{Binding schedule_datecoming}"/>
-                    <GridViewColumn Header="Hämtningstid" Width="100" DisplayMemberBinding="{Binding schedule_dateleaving}"/>
-                    <GridViewColumn Header="Datum" Width="100" DisplayMemberBinding="{Binding arrivaldate}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <CheckBox x:Name="checkfrukost" Content="Mitt barn vill äta frukost på fritids" HorizontalAlignment="Left" Margin="412,507,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="412,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-        <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="412,394,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkhemsjälv" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="412,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <CheckBox x:Name="checkfrukost" Content="Mitt barn vill äta frukost på fritids" HorizontalAlignment="Left" Margin="395,493,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="395,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="395,342,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkhemsjälv" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="395,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <Calendar x:Name="Calender" Margin="23,351,998,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5" SelectedDatesChanged="calender_selectedDate"/>
-        <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="412,564,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
+        <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="395,570,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
         <TextBox x:Name="txtvisadatum1" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10" MaxLines="1"/>
-        <TextBox x:Name="txtcoming" HorizontalAlignment="Left" Height="23" Margin="227,429,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtleaving" HorizontalAlignment="Left" Height="23" Margin="227,493,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtcoming" HorizontalAlignment="Left" Height="23" Margin="227,429,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtleaving" HorizontalAlignment="Left" Height="23" Margin="227,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label1_Copy" Content="datum" HorizontalAlignment="Left" Margin="227,342,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy1" Content="Lämning" HorizontalAlignment="Left" Margin="227,398,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy2" Content="Hämtning" HorizontalAlignment="Left" Margin="227,462,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="685,372,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSick_Click"/>
+        <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="967,570,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSick_Click"/>
+        <Label x:Name="label1_Copy3" Content="Sjukanmälan" HorizontalAlignment="Left" Margin="792,290,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="792,360,0,0" TextWrapping="Wrap" Text="För att göra en sjukanmälan behöver du markera det barn som du vill anmäla sjukt och sedan trycka på knappen. &quot;Anmäl sjuk&quot;" VerticalAlignment="Top" Height="95" Width="223"/>
 
     </Grid>
 </Window>

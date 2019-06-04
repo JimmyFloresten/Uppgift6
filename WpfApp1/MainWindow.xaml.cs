@@ -23,16 +23,16 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            UpdateListView();            
+            //UpdateListView();            
            
         }
         
-        private void UpdateListView()
-        {
-            dbOperations db = new dbOperations();
-            listView.ItemsSource = null;
-            listView.ItemsSource = db.GetAllGuardians();
-        }
+        //private void UpdateListView()
+        //{
+        //    dbOperations db = new dbOperations();
+        //    //listView.ItemsSource = null;
+        //    //listView.ItemsSource = db.GetAllGuardians();
+        //}
         
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -41,7 +41,7 @@ namespace WpfApp1
             try
             {
                 List<staff> staffs = db.GetAllStaff();
-                listBox.ItemsSource = staffs;
+                //listBox.ItemsSource = staffs;
             }
             catch(PostgresException ex)
             {
@@ -50,24 +50,24 @@ namespace WpfApp1
         }
         
         guardian selectedGuardian;
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-          //listBox.SelectedItem = selectedGuardian;
-        }
+        //private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //  //listBox.SelectedItem = selectedGuardian;
+        //}
 
         private void btnLogInG_Click(object sender, RoutedEventArgs e)
         {
             dbOperations db = new dbOperations();
-            listView.SelectedItem = selectedGuardian;
+            //listView.SelectedItem = selectedGuardian;
             guardianlogin guardianlogin = new guardianlogin();
             guardianlogin.Show();
             this.Close();
         }
 
-        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            listView.SelectedItem = selectedGuardian;
-        }
+        //private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //listView.SelectedItem = selectedGuardian;
+        //}
 
         private void btnTeachLogin_Click(object sender, RoutedEventArgs e)
         {
