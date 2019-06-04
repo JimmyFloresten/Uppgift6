@@ -17,7 +17,7 @@
                     <GridViewColumn Header="Ledighet" Width="140" DisplayMemberBinding="{Binding leave}"/>
                     <GridViewColumn Header="Veckodag" Width="100" DisplayMemberBinding="{Binding weekday}"/>
                     <GridViewColumn Header="Lämningstid" Width="100" DisplayMemberBinding="{Binding schedule_datecoming}"/>
-                    <GridViewColumn Header="Hämtningstid" Width="100" DisplayMemberBinding="{Binding schedule_datelevaing}"/>
+                    <GridViewColumn Header="Hämtningstid" Width="100" DisplayMemberBinding="{Binding schedule_dateleaving}"/>
                 </GridView>
             </ListView.View>
         </ListView>
