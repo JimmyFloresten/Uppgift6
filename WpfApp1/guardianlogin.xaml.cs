@@ -105,6 +105,19 @@ namespace WpfApp1
             MessageBox.Show($"Ditt schema är nu sparat");
         }
 
+
+
+
+
+        //private void Button1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Child selectedChild = new Child();
+
+        //    dbOperations db = new dbOperations();
+        //    listView.SelectedItem = selectedChild;
+        //    db.Leave((Child)listView.SelectedItem);
+        //    MessageBox.Show("En ledighetsansökan har skickats");
+        //}
     }
     
 }
