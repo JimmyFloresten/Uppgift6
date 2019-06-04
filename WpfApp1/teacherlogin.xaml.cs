@@ -28,6 +28,8 @@ namespace WpfApp1
         }
         Child selectedChild;
         guardian_child selectedGuardian;
+        
+
         private void listView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Child selectedChild = new Child();
@@ -63,7 +65,7 @@ namespace WpfApp1
             DateTime departure = GetTime();
             listView1.SelectedItem = selectedChild;
             db.Attendence(staffs.staff_id, (Child)listView1.SelectedItem, GetTime(), btn);
-            MessageBox.Show($"{selectedChild.fname} har gått hem");
+            MessageBox.Show($"har gått hem");
         }
 
         private void listViewGuardian_SelectionChanged(object sender, SelectionChangedEventArgs e)

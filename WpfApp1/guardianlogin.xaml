@@ -17,23 +17,23 @@
             </ListView.View>
         </ListView>
         <Label x:Name="label" Content="Mina barn" HorizontalAlignment="Left" Margin="23,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.064,0.949" FontSize="20"/>
-        <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="23,277,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
-        <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="526,302,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.542,0.523"/>
-        <CheckBox x:Name="checkfrukost" Content="Mitt barn vill äta frukost på fritids" HorizontalAlignment="Left" Margin="395,493,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="395,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-        <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="395,342,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkhemsjälv" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="395,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Calendar x:Name="Calender" Margin="23,351,998,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5" SelectedDatesChanged="calender_selectedDate"/>
-        <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="395,570,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
-        <TextBox x:Name="txtvisadatum1" HorizontalAlignment="Left" Height="23" Margin="227,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10" MaxLines="1"/>
-        <TextBox x:Name="txtcoming" HorizontalAlignment="Left" Height="23" Margin="227,429,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtleaving" HorizontalAlignment="Left" Height="23" Margin="227,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1_Copy" Content="datum" HorizontalAlignment="Left" Margin="227,342,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy1" Content="Lämning" HorizontalAlignment="Left" Margin="227,398,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy2" Content="Hämtning" HorizontalAlignment="Left" Margin="227,462,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="885,567,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSick_Click"/>
-        <Label x:Name="label1_Copy3" Content="Sjukanmälan" HorizontalAlignment="Left" Margin="710,287,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="710,357,0,0" TextWrapping="Wrap" Text="För att göra en sjukanmälan behöver du markera det barn som du vill anmäla sjukt och sedan trycka på knappen. &quot;Anmäl sjuk&quot;" VerticalAlignment="Top" Height="95" Width="223"/>
+        <Label x:Name="label1" Content="Skapa nytt schema" HorizontalAlignment="Left" Margin="24,276,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
+        <Label x:Name="label4" Content="-" HorizontalAlignment="Left" Margin="527,301,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.542,0.523"/>
+        <CheckBox x:Name="checkfrukost" Content="Mitt barn vill äta frukost på fritids" HorizontalAlignment="Left" Margin="396,492,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_pickup" HorizontalAlignment="Left" Height="23" Margin="396,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Label x:Name="label2" Content="Mitt barn få bli hämtad av" HorizontalAlignment="Left" Margin="396,341,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkhemsjälv" Content="Mitt barn får gå hem själv" HorizontalAlignment="Left" Margin="396,428,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Calendar x:Name="Calender" Margin="24,350,997,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.5" SelectedDatesChanged="calender_selectedDate"/>
+        <Button x:Name="button" Content="Spara" HorizontalAlignment="Left" Margin="396,569,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
+        <TextBox x:Name="txtvisadatum1" HorizontalAlignment="Left" Height="23" Margin="228,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10" MaxLines="1"/>
+        <TextBox x:Name="txtcoming" HorizontalAlignment="Left" Height="23" Margin="228,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtleaving" HorizontalAlignment="Left" Height="23" Margin="228,492,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy" Content="datum" HorizontalAlignment="Left" Margin="228,341,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy1" Content="Lämning" HorizontalAlignment="Left" Margin="228,397,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="Hämtning" HorizontalAlignment="Left" Margin="228,461,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="746,456,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSick_Click"/>
+        <Label x:Name="label1_Copy3" Content="Sjukanmälan" HorizontalAlignment="Left" Margin="745,286,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="745,356,0,0" TextWrapping="Wrap" Text="För att göra en sjukanmälan behöver du markera det barn som du vill anmäla sjukt och sedan trycka på knappen. &quot;Anmäl sjuk&quot;" VerticalAlignment="Top" Height="95" Width="223"/>
 
     </Grid>
 </Window>
