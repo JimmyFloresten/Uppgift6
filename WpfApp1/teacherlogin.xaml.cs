@@ -37,7 +37,8 @@ namespace WpfApp1
             dbOperations db = new dbOperations();
             listView1.SelectedItem = selectedChild;
             listView.ItemsSource = db.GetSchedules((Child)listView1.SelectedItem);
-           // listViewGuardian.ItemsSource = db.GetGuardian((guardian_child)listView1.SelectedItem);
+            //visa TOshortdate.
+           
         }
 
         public DateTime GetTime()
@@ -50,7 +51,24 @@ namespace WpfApp1
 
         }
 
-      
+
+        // Metod som ändrar false till Nej.
+        public string Breakfast()
+        {
+            schedule schedule = new schedule();
+            string bft = "Ja";
+            string bff = "Nej";
+
+            if ((schedule.breakfast) == true)
+            {
+
+                return bft;
+            }
+            else
+            {
+                return bff;
+            }
+        }
 
         private bool btn = false;
 

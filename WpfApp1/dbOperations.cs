@@ -36,8 +36,6 @@ namespace WpfApp1
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT child.child_id, child.fname, child.special_needs, child.lname FROM child INNER JOIN guardian_child ON child.child_id = guardian_child.child_id WHERE guardian_id = 1";
-                    // NÄR SOLEN SKINER, VILL JAG HA GLASSAR. 
-                    // SOM SOM SOMMAREN, PULSEN BÖRJAR SLÅ KAN INTE FÖRKLARA. ALLTING BÖRJAR OM OM OM IGEN, HON E SHALALA SOM SOM SOMMAREN.
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -91,7 +89,6 @@ namespace WpfApp1
         {
             guardian g;
             List<guardian> guardians = new List<guardian>();
-            // string stmt = "SELECT * FROM child SORT BY ASC";
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
@@ -135,8 +132,6 @@ namespace WpfApp1
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT child.child_id, child.fname, child.special_needs, child.lname, learn.clas FROM child INNER JOIN learn ON child.child_id = learn.child_id WHERE learn.clas = '1:an'";
-                    // NÄR SOLEN SKINER, VILL JAG HA GLASSAR. 
-                    // SOM SOM SOMMAREN, PULSEN BÖRJAR SLÅ KAN INTE FÖRKLARA. ALLTING BÖRJAR OM OM OM IGEN, HON E SHALALA SOM SOM SOMMAREN.
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -184,7 +179,6 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("ga", ga);
                     cmd.Parameters.AddWithValue("child_id", c.child_id);
                     cmd.Parameters.AddWithValue("arrivaldate", arrivaldate);
-                    // cmd.Parameters.AddWithValue("weekday")
                     cmd.Parameters.AddWithValue("schedule_datecoming", schedule_datecoming);
                     cmd.Parameters.AddWithValue("schedule_dateleaving", schedule_dateleaving);
                     cmd.ExecuteNonQuery();
@@ -225,6 +219,7 @@ namespace WpfApp1
                             {
                                 s.leave = reader.GetDateTime(6);
                             }
+                            // om värdet är null så ska raden vara tom. 
                             if ((!reader.IsDBNull(7)))
                             {
                                 s.weekday = reader.GetString(7);
@@ -248,7 +243,6 @@ namespace WpfApp1
         {
             staff s;
             List<staff> staffs = new List<staff>();
-            // string stmt = "SELECT * FROM child SORT BY ASC";
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
@@ -277,10 +271,31 @@ namespace WpfApp1
 
         }
 
+        public void Leave(Child schedule_id, DateTime l)
+        {
+            schedule s = new schedule();
+            s.leave = l;
+
+
+            string stmt = "UPDATE schedule SET LEAVE = (@l) WHERE schedule_id = (@schedule_id)";
+
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("schedule_id", schedule_id.child_id);
+                    cmd.Parameters.AddWithValue("l", l);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+
+        }
+
         public void Sick(Child schedule_id, DateTime sl)
         {
             schedule s = new schedule();
-           // s.schedule_id = schedule_id;
             s.sickleave = sl;
 
 
@@ -298,34 +313,6 @@ namespace WpfApp1
                 }
             }
         }
-
-
-
-
-        ///*public List<schedule> ReportSick(Child child)
-        //{
-        //    List<schedule> schedules = new List<schedule>();
-        //    DateTime sl = new DateTime();
-        //    schedule s = new schedule();        
-        //    s.sickleave = sl;
-
-        //    string stmt = "UPDATE schedule(sickleave VALUES (@sl)";
-
-        //    using (var conn = new
-        //         NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
-        //    {
-        //        conn.Open();
-        //        using (var cmd = new NpgsqlCommand(stmt, conn))
-        //        {                  
-        //            cmd.Parameters.AddWithValue("sl", sl);                  
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        schedules.Add(s);
-        //    }
-        //    return schedules;*/
-
-        //}
-
 
         public void addChild(string c_fname, string c_lname, string special_needs)
         {
@@ -355,7 +342,7 @@ namespace WpfApp1
             
             guardian g;
             List<guardian> guardians = new List<guardian>();
-            // string stmt = "SELECT * FROM child SORT BY ASC";
+         
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
             {
@@ -416,9 +403,6 @@ namespace WpfApp1
             a.attending = attending;
 
             string stmt = "INSERT INTO attendence(staff_id, child_id, departure, attending) VALUES (@s_id, @ch_id, @departure, @attending)";
-
-            // jag orkar inte mer, vill inte vara kvar, jag längtar efter er min kära mor och far. 
-            //maten smakar skit
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))

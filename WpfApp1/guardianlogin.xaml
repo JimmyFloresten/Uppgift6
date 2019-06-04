@@ -31,9 +31,9 @@
         <Label x:Name="label1_Copy" Content="datum" HorizontalAlignment="Left" Margin="228,341,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy1" Content="Lämning" HorizontalAlignment="Left" Margin="228,397,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1_Copy2" Content="Hämtning" HorizontalAlignment="Left" Margin="228,461,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="746,456,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSick_Click"/>
-        <Label x:Name="label1_Copy3" Content="Sjukanmälan" HorizontalAlignment="Left" Margin="745,286,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="745,356,0,0" TextWrapping="Wrap" Text="För att göra en sjukanmälan behöver du markera det barn som du vill anmäla sjukt och sedan trycka på knappen. &quot;Anmäl sjuk&quot;" VerticalAlignment="Top" Height="95" Width="223"/>
+        <Button x:Name="ButtonSick" Content="Anmäl sjuk" HorizontalAlignment="Left" Margin="418,215,0,0" VerticalAlignment="Top" Width="75" Click="ButtonSick_Click"/>
+        <Label x:Name="label1_Copy3" Content="Sjukanmälan" HorizontalAlignment="Left" Margin="417,45,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="22"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="417,115,0,0" TextWrapping="Wrap" Text="För att göra en sjukanmälan behöver du markera det barn som du vill anmäla sjukt och sedan trycka på knappen. &quot;Anmäl sjuk&quot;" VerticalAlignment="Top" Height="95" Width="223"/>
 
     </Grid>
 </Window>
