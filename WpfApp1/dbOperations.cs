@@ -84,7 +84,6 @@ namespace WpfApp1
             }
             return childs;
         }
-
         public List<guardian> GetAllGuardians()
         {
             guardian g;
@@ -118,7 +117,6 @@ namespace WpfApp1
             }
 
         }
-
         public List<Child> getAllclasChildren()
         {
             string stt = "1:an";
@@ -152,8 +150,6 @@ namespace WpfApp1
 
             }
         }
-        //metod för att lägga till nytt schema-
-
         public void addLeave(Child c, DateTime leave)
         {
             schedule s = new schedule();
@@ -237,6 +233,8 @@ namespace WpfApp1
                             if ((!reader.IsDBNull(6)))
                             {
                                 s.leave = reader.GetDateTime(6);
+
+                               
                             }
                             // om värdet är null så ska raden vara tom. 
                             if ((!reader.IsDBNull(7)))
@@ -293,6 +291,7 @@ namespace WpfApp1
         {
             schedule s = new schedule();
             s.sickleave = sl;
+           
 
             string stmt = "UPDATE schedule SET SICKLEAVE = (@sl) WHERE schedule_id = (@schedule_id)";
 

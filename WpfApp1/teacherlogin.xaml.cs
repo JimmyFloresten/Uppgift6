@@ -42,6 +42,16 @@ namespace WpfApp1
            
         }
 
+        //public string blankspace()
+        //{
+        //    string blanspace = "01/01/01 00:00:00";
+        //    schedule schedule = new schedule();
+        //    if (schedule.leave = blankspace)
+        //    {
+
+        //    }
+        //}
+
         public DateTime GetTime()
         {
             DateTime localDate = DateTime.Now;
@@ -50,25 +60,6 @@ namespace WpfApp1
             return localDate;
             
 
-        }
-
-
-        // Metod som ändrar false till Nej.
-        public string Breakfast()
-        {
-            schedule schedule = new schedule();
-            string bft = "Ja";
-            string bff = "Nej";
-
-            if ((schedule.breakfast) == true)
-            {
-
-                return bft;
-            }
-            else
-            {
-                return bff;
-            }
         }
 
         private bool btn = false;

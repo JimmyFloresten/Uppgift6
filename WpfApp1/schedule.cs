@@ -12,7 +12,7 @@ namespace WpfApp1
 
         public bool breakfast { get; set; }
     
-        public DateTime sickleave { get; set; }
+        public DateTime? sickleave { get; set; }
 
         public string pick_up { get; set; }
         
@@ -20,7 +20,7 @@ namespace WpfApp1
 
         public int child_id {get; set; }
 
-        public DateTime leave { get; set; }
+        public DateTime? leave { get; set; }
 
         public TimeSpan schedule_dateleaving { get; set; }
 
@@ -32,7 +32,7 @@ namespace WpfApp1
 
         public override string ToString()
         {
-            return child_id + " " + breakfast + " " + sickleave.ToShortTimeString() + " " + pick_up + " " + goalone + " " + leave + " " + weekday + " " + schedule_datecoming + " " + schedule_dateleaving + " " + arrivaldate;
+            return child_id + " " + breakfast + " " + sickleave.Value + " " + pick_up + " " + goalone + " " + leave + " " + weekday + " " + schedule_datecoming + " " + schedule_dateleaving + " " + arrivaldate;
         }
 
     }

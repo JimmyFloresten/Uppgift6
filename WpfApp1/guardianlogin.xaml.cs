@@ -87,7 +87,7 @@ namespace WpfApp1
         private void ButtonSick_Click(object sender, RoutedEventArgs e)
         {
             Child selectedChild = new Child();
-
+            
             dbOperations db = new dbOperations();
             listView.SelectedItem = selectedChild;
             db.Sick(((Child)listView.SelectedItem), GetTime());
