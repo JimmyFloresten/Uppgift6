@@ -287,24 +287,29 @@ namespace WpfApp1
             }
         }
 
-        public void Sick(Child schedule_id, DateTime sl)
+        public void Sick(Child child, DateTime sl)
         {
-            schedule s = new schedule();
-            s.sickleave = sl;
-           
-
-            string stmt = "UPDATE schedule SET SICKLEAVE = (@sl) WHERE schedule_id = (@schedule_id)";
-
-            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            List <schedule> schedules = GetSchedules(child);
+            foreach (var schedule in schedules)
             {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand(stmt, conn))
+                if (schedule.arrivaldate.Date == sl.Date)
                 {
-                    cmd.Parameters.AddWithValue("schedule_id",schedule_id.child_id);
-                    cmd.Parameters.AddWithValue("sl", sl);
-                    cmd.ExecuteNonQuery();
+                    var scheduleId = schedule.schedule_id;
+                    string stmt = "UPDATE schedule SET SICKLEAVE = (@sl) WHERE schedule_id = (@scheduleId)";
+
+                    using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+                    {
+                        conn.Open();
+                        using (var cmd = new NpgsqlCommand(stmt, conn))
+                        {
+                            cmd.Parameters.AddWithValue("scheduleId", scheduleId);
+                            cmd.Parameters.AddWithValue("sl", sl);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
                 }
             }
+            
         }
 
         public void addChild(string c_fname, string c_lname, string special_needs)
