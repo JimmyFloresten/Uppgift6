@@ -42,15 +42,7 @@ namespace WpfApp1
            
         }
 
-        //public string blankspace()
-        //{
-        //    string blanspace = "01/01/01 00:00:00";
-        //    schedule schedule = new schedule();
-        //    if (schedule.leave = blankspace)
-        //    {
-
-        //    }
-        //}
+        
 
         public DateTime GetTime()
         {
@@ -80,10 +72,22 @@ namespace WpfApp1
 
         private void listViewGuardian_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Child selectedChild = new Child();
-            //dbOperations db = new dbOperations();
-            //listView1.SelectedItem = selectedChild;
-            
+          
+
+        }
+
+        private bool frånvarande = true;
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            frånvarande = false;
+            attendence attendence = new attendence();
+            dbOperations db = new dbOperations();
+            staff staffs = new staff();
+            staffs.staff_id = 1;
+            listView1.SelectedItem = selectedChild;
+            db.abscene(staffs.staff_id, (Child)listView1.SelectedItem, frånvarande);
+            MessageBox.Show("Du har anmält frånvaro");
         }
     }
 }

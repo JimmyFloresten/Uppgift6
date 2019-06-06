@@ -30,7 +30,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="button" Content="Gått hem" HorizontalAlignment="Left" Margin="1075,345,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="button" Content="Gått hem" HorizontalAlignment="Left" Margin="895,345,0,0" VerticalAlignment="Top" Width="169" Click="Button_Click" Height="70"/>
         <ListView x:Name="listViewGuardian" HorizontalAlignment="Left" Height="195" Margin="55,359,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listViewGuardian_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -43,6 +43,7 @@
         <Label x:Name="label" Content="Klass 1A" HorizontalAlignment="Left" Margin="55,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
         <Label x:Name="label_Copy" Content="Schema" HorizontalAlignment="Left" Margin="375,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
         <Label x:Name="label_Copy1" Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="55,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
+        <Button x:Name="button1" Content="Frånvarande" HorizontalAlignment="Left" Margin="478,345,0,0" VerticalAlignment="Top" Width="169" Height="70" Click="Button1_Click"/>
 
     </Grid>
 </Window>

@@ -235,8 +235,7 @@ namespace WpfApp1
                                 s.leave = reader.GetDateTime(6);
 
                                
-                            }
-                            // om värdet är null så ska raden vara tom. 
+                            } 
                             if ((!reader.IsDBNull(7)))
                             {
                                 s.weekday = reader.GetString(7);
@@ -417,6 +416,28 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("s_id", s_id);
                     cmd.Parameters.AddWithValue("ch_id", ch_id.child_id);
                     cmd.Parameters.AddWithValue("departure", departure);
+                    cmd.Parameters.AddWithValue("attending", attending);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void abscene(int s_id, Child ch_id, bool attending)
+        {
+            attendence a = new attendence();
+            a.staff_id = s_id;
+            a.attending = attending;
+
+            string stmt = "INSERT INTO attendence(staff_id, child_id, attending) VALUES (@s_id, @ch_id, @attending)";
+
+            using (var conn = new
+                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+                {
+
+                    cmd.Parameters.AddWithValue("s_id", s_id);
+                    cmd.Parameters.AddWithValue("ch_id", ch_id.child_id);
                     cmd.Parameters.AddWithValue("attending", attending);
                     cmd.ExecuteNonQuery();
                 }
