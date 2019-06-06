@@ -57,66 +57,7 @@ namespace WpfApp1
             }
 
         }
-        public List<Child> GetAllChildren()
-        {
-            Child c;
-            List<Child> childs = new List<Child>();
-            string stmt = "SELECT * FROM child SORT BY ASC";
-            var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString);
-            conn.Open();
-
-            var cmd = new NpgsqlCommand(stmt, conn);
-
-            var reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                c = new Child()
-                {
-                    child_id = reader.GetInt32(0),
-                    fname = reader.GetString(1),
-                    lname = reader.GetString(3),
-                    special_needs = reader.GetString(2)
-                };
-                childs.Add(c);
-                conn.Close();
-            }
-            return childs;
-        }
-        public List<guardian> GetAllGuardians()
-        {
-            guardian g;
-            List<guardian> guardians = new List<guardian>();
-            using (var conn = new
-                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
-            {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM guardian ORDER BY guardian_id ASC";
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            g = new guardian()
-                            {
-                                guardian_id = reader.GetInt32(0),
-                                fname = reader.GetString(1),
-                                phone = reader.GetInt32(2)
-                            };
-                            guardians.Add(g);
-                        }
-                    }
-                    conn.Close();
-                }
-                return guardians;
-
-            }
-
-        }
+       
         public List<Child> getAllclasChildren()
         {
             string stt = "1:an";
@@ -444,38 +385,38 @@ namespace WpfApp1
                 }
             }
         }
-        public List<attendence> getAttendence()
-        {
-            string stt = "1:an";
-            attendence a;
-            List<attendence> attend = new List<attendence>();
-            using (var conn = new
-               NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
-            {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT  child.fname,  attendence.departure, attendence.attending FROM attendence INNER JOIN learn ON attendence.child_id = learn.child_id INNER JOIN child on child.child_id = attendence.child_id WHERE learn.clas = '1:an'";
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            a = new attendence()
-                            {
-                                fname = reader.GetString(0),
-                                departure = reader.GetDateTime(1),
-                                attending = reader.GetBoolean(2),
-                            };
-                            attend.Add(a);
-                        }
-                    }
-                    conn.Close();
-                }
-                return attend;
+        //public List<attendence> getAttendence()
+        //{
+        //    string stt = "1:an";
+        //    attendence a;
+        //    List<attendence> attend = new List<attendence>();
+        //    using (var conn = new
+        //       NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+        //    {
+        //        conn.Open();
+        //        using (var cmd = new NpgsqlCommand())
+        //        {
+        //            cmd.Connection = conn;
+        //            cmd.CommandText = "SELECT  child.fname,  attendence.departure, attendence.attending FROM attendence INNER JOIN learn ON attendence.child_id = learn.child_id INNER JOIN child on child.child_id = attendence.child_id WHERE learn.clas = '1:an'";
+        //            using (var reader = cmd.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    a = new attendence()
+        //                    {
+        //                        fname = reader.GetString(0),
+        //                        departure = reader.GetDateTime(1),
+        //                        attending = reader.GetBoolean(2),
+        //                    };
+        //                    attend.Add(a);
+        //                }
+        //            }
+        //            conn.Close();
+        //        }
+        //        return attend;
 
-            }
-        }
+        //    }
+        //}
 
     }
 }
