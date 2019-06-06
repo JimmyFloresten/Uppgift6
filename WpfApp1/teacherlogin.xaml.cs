@@ -26,8 +26,7 @@ namespace WpfApp1
             GetTime();
             listView1.ItemsSource = null;
             listView1.ItemsSource = db.getAllclasChildren();
-            listView2.ItemsSource = null;
-            listView2.ItemsSource = db.getAttendence();
+
         }
         Child selectedChild;
         guardian_child selectedGuardian;
