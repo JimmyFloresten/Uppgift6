@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    class attendence
+    class attendence : Child
     {
         public int attendence_id { get; set; }
 

@@ -421,13 +421,13 @@ namespace WpfApp1
                 }
             }
         }
-        public void abscene(int s_id, Child ch_id, bool attending)
+        public void abscene(int s_id, Child ch_id, DateTime departure, bool attending)
         {
             attendence a = new attendence();
             a.staff_id = s_id;
             a.attending = attending;
 
-            string stmt = "INSERT INTO attendence(staff_id, child_id, attending) VALUES (@s_id, @ch_id, @attending)";
+            string stmt = "INSERT INTO attendence(staff_id, child_id, departure, attending) VALUES (@s_id, @ch_id, @departure, @attending)";
 
             using (var conn = new
                  NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
@@ -438,9 +438,42 @@ namespace WpfApp1
 
                     cmd.Parameters.AddWithValue("s_id", s_id);
                     cmd.Parameters.AddWithValue("ch_id", ch_id.child_id);
+                    cmd.Parameters.AddWithValue("departure", departure);
                     cmd.Parameters.AddWithValue("attending", attending);
                     cmd.ExecuteNonQuery();
                 }
+            }
+        }
+        public List<attendence> getAttendence()
+        {
+            string stt = "1:an";
+            attendence a;
+            List<attendence> attend = new List<attendence>();
+            using (var conn = new
+               NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbconn"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT  child.fname,  attendence.departure, attendence.attending FROM attendence INNER JOIN learn ON attendence.child_id = learn.child_id INNER JOIN child on child.child_id = attendence.child_id WHERE learn.clas = '1:an'";
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            a = new attendence()
+                            {
+                                fname = reader.GetString(0),
+                                departure = reader.GetDateTime(1),
+                                attending = reader.GetBoolean(2),
+                            };
+                            attend.Add(a);
+                        }
+                    }
+                    conn.Close();
+                }
+                return attend;
+
             }
         }
 

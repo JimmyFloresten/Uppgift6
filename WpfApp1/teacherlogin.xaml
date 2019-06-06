@@ -30,7 +30,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="button" Content="Gått hem" HorizontalAlignment="Left" Margin="895,345,0,0" VerticalAlignment="Top" Width="169" Click="Button_Click" Height="70"/>
+        <Button x:Name="button" Content="Gått hem" HorizontalAlignment="Left" Margin="673,345,0,0" VerticalAlignment="Top" Width="169" Click="Button_Click" Height="70"/>
         <ListView x:Name="listViewGuardian" HorizontalAlignment="Left" Height="195" Margin="55,359,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="listViewGuardian_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -44,6 +44,15 @@
         <Label x:Name="label_Copy" Content="Schema" HorizontalAlignment="Left" Margin="375,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
         <Label x:Name="label_Copy1" Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="55,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.096,0.312" FontSize="22"/>
         <Button x:Name="button1" Content="Frånvarande" HorizontalAlignment="Left" Margin="478,345,0,0" VerticalAlignment="Top" Width="169" Height="70" Click="Button1_Click"/>
+        <ListView x:Name="listView2" HorizontalAlignment="Left" Height="155" Margin="941,345,0,0" VerticalAlignment="Top" Width="295">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Förnamn" Width="100" DisplayMemberBinding="{Binding fname}"/>
+                    <GridViewColumn Header="Närvarande" Width="100" DisplayMemberBinding="{Binding attending}"/>
+                    <GridViewColumn Header="Hämtad:" Width="100" DisplayMemberBinding="{Binding departure}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

@@ -23,8 +23,11 @@ namespace WpfApp1
         {
             dbOperations db = new dbOperations();
             InitializeComponent();
+            GetTime();
             listView1.ItemsSource = null;
             listView1.ItemsSource = db.getAllclasChildren();
+            listView2.ItemsSource = null;
+            listView2.ItemsSource = db.getAttendence();
         }
         Child selectedChild;
         guardian_child selectedGuardian;
@@ -81,12 +84,14 @@ namespace WpfApp1
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
             frånvarande = false;
+            Child selectedChild = new Child();
             attendence attendence = new attendence();
             dbOperations db = new dbOperations();
             staff staffs = new staff();
             staffs.staff_id = 1;
+            DateTime departure = GetTime();
             listView1.SelectedItem = selectedChild;
-            db.abscene(staffs.staff_id, (Child)listView1.SelectedItem, frånvarande);
+            db.abscene(staffs.staff_id, (Child)listView1.SelectedItem, GetTime(), frånvarande);
             MessageBox.Show("Du har anmält frånvaro");
         }
     }
